@@ -98,8 +98,8 @@ export default class AgriHomePage extends LightningElement {
         const formattedDate = `${day}/${month}/${year}`;
 
         console.log(formattedDate);
-                    
-            let endPoint = `https://api.data.gov.in/catalog/6141ea17-a69d-4713-b600-0a43c8fd9a6c?api-key=579b464db66ec23bdd000001cdd3946e44ce4aad7209ff7b23ac571b&format=json&filters%5Bdistrict%5D=${this.searchValue}&filters%5Barrival_date%5D=${formattedDate}`;
+        let endPoint = `https://api.data.gov.in/catalog/6141ea17-a69d-4713-b600-0a43c8fd9a6c?api-key=579b464db66ec23bdd000001be46e8b8b04c4b746f8c908419d2c4e3&format=json&limit=1000&filters%5Bdistrict%5D=${this.searchValue}&filters%5Barrival_date%5D=${formattedDate}`;
+        // let endPoint = `https://api.data.gov.in/catalog/6141ea17-a69d-4713-b600-0a43c8fd9a6c?api-key=579b464db66ec23bdd000001cdd3946e44ce4aad7209ff7b23ac571b&format=json&limit=1000&filters%5Bdistrict%5D=${this.searchValue}&filters%5Barrival_date%5D=${formattedDate}`;
             fetch(endPoint,{
                 method: "GET"
             })

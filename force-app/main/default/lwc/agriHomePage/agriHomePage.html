@@ -35,32 +35,31 @@
             </p>
 
 
-            
-            <lightning-combobox
+            <div style="margin-left:100px;margin-right:100px;margin-bottom:30px;">
+                <lightning-combobox
                 name="city"
-                label="City"
                 value={searchValue}
                 placeholder="Select City"
                 options={options}
                 onchange={handleSearchChange}
-                required>
-            </lightning-combobox>
- 
-            <div class="Agricard">
+                >
+              </lightning-combobox>
+            </div>
+            <div class="data-container">
                 <template if:true={showMarketData}>
                     <!-- <h1>Today's Market:</h1> -->
-                    <div class="Agricard-content">
+                    <!-- <div class="datamarket"> -->
                     <template for:each={agriData} for:item="marketItem">
-                        <div key={marketItem.id}>
-                            <p>{marketItem.state}, {marketItem.district}, {marketItem.market}</p>
-                            <p>Commodity: {marketItem.commodity}</p>
-                            <p>Arrival Date: {marketItem.arrival_date}</p>
-                            <p>Min Price: {marketItem.min_price}</p>
-                            <p>Max Price: {marketItem.max_price}</p>
-                            <p>Modal Price: {marketItem.modal_price}</p>
+                        <div class="data-item" key={marketItem.id}>
+                            <p style="font-size: large;">{marketItem.state}, {marketItem.district}, {marketItem.market}</p>
+                            <p><b>Commodity: </b> {marketItem.commodity}</p>
+                            <p><b>Arrival Date:</b> {marketItem.arrival_date}</p>
+                            <p><b>Min Price:</b> {marketItem.min_price}</p>
+                            <p><b>Max Price:</b> {marketItem.max_price}</p>
+                            <p><b>Modal Price:</b> {marketItem.modal_price}</p>
                         </div>
                     </template>
-                    </div>
+                    <!-- </div> -->
                 </template>
             </div>         
         </div>

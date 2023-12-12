@@ -59,19 +59,36 @@
     margin: 0;
 }
 
-.Agricard{
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    border-radius: 15px;
-    background-color: #fff; /* White background */
-    overflow: hidden;
-    
-}
-.Agricard-content{
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
 
+/* Show all Agriculture DAta */
+.data-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: rgb(76, 120, 61);
 }
+
+.data-item {
+    background-color: #f0f0f0;
+    border: 1px solid #333131;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    transition: background-color 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.data-item:hover {
+    background-color: #abcbb1;
+}
+
+/* .datamarket{
+    background-color: bisque;
+} */
+/* .hovered {
+    background-color: #abcbb1;
+} */
+
 .heading{
     font-size: 30px;
     color: #2c3e50; /* Dark blue color */
