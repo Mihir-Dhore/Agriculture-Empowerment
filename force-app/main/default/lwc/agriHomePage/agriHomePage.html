@@ -24,11 +24,23 @@
 
               <!--******************* Agri - Start ************************-->
         <div>
+            <h1 class="heading">City Market Insights</h1>
+            <p class="main-description">
+                City Market Insights provides a comprehensive overview of local agricultural markets, offering 
+                you a detailed glimpse into the dynamics of each city's agricultural landscape. Explore real-time 
+                data on commodities, arrival dates, pricing trends, and more. Gain valuable insights to make 
+                informed decisions in the ever-evolving world of agriculture. Whether you're a farmer, trader, or 
+                enthusiast, City Market Insights equips you with the knowledge needed to navigate and thrive in your city's agricultural markets. <br> <br>
+                Select Your City to Know More About Market!
+            </p>
+
+
+            
             <lightning-combobox
-                name="progress"
-                label="Status"
+                name="city"
+                label="City"
                 value={searchValue}
-                placeholder="Select Progress"
+                placeholder="Select City"
                 options={options}
                 onchange={handleSearchChange}
                 required>
@@ -36,7 +48,7 @@
  
             <div class="Agricard">
                 <template if:true={showMarketData}>
-                    <h1>Today's Market:</h1>
+                    <!-- <h1>Today's Market:</h1> -->
                     <div class="Agricard-content">
                     <template for:each={agriData} for:item="marketItem">
                         <div key={marketItem.id}>

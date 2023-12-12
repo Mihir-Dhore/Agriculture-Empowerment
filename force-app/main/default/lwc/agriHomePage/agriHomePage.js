@@ -2,11 +2,11 @@ import { LightningElement,track } from 'lwc';
 
 export default class AgriHomePage extends LightningElement {
      
-     // To get current user location and weather details 
      @track imageURL;
      @track date;
      @track result;
 
+     //To get Weather Details
      connectedCallback() {
         this.handleCurrentLocation();
     }
@@ -23,7 +23,6 @@ export default class AgriHomePage extends LightningElement {
                     console.log('Current Location:', currentLocation);
 
                     let endPoint = `https://api.weatherapi.com/v1/current.json?key=6388b321ff7a4f239de125943230612&q=${currentLocation.latitude},${currentLocation.longitude}`;
-                    console.log('Weather API endpoint:', endPoint);
 
                     fetch(endPoint, {
                         method: 'GET'
@@ -52,9 +51,29 @@ export default class AgriHomePage extends LightningElement {
 
     //For DropDown
     @track options = [
+        { label: '---', value: '---' },
         { label: 'Pune', value: 'Pune' },
         { label: 'Surat', value: 'Surat' },
         { label: 'Nashik', value: 'Nashik' },
+        { label: 'Ahmednagar', value: 'Ahmednagar' },
+        { label: 'Chandrapur', value: 'Chandrapur' },
+        { label: 'Banaskanth', value: 'Banaskanth' },
+        { label: 'Bikaner', value: 'Bikaner' },
+        { label: 'Ganganagar', value: 'Ganganagar' },
+        { label: 'Fatehgarh', value: 'Fatehgarh' },
+        { label: 'Bhatinda', value: 'Bhatinda' },
+        { label: 'Bankura', value: 'Bankura' },
+        { label: 'Birbhum', value: 'Birbhum' },
+        { label: 'Darjeeling', value: 'Darjeeling' },
+        { label: 'Indore', value: 'Indore' },
+        { label: 'Harda', value: 'Harda' },
+        { label: 'Dewas', value: 'Dewas' },
+        { label: 'Adilabad', value: 'Adilabad' },
+        { label: 'Hyderabad', value: 'Hyderabad' },
+        { label: 'Erode', value: 'Erode' },
+
+
+
     ];
 
     @track showMarketData = false;
