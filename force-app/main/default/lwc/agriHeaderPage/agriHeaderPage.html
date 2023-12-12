@@ -1,0 +1,39 @@
+<template>
+    <div class="mainn">
+      <nav>
+          <div class="stylish-header">
+              <a class="links logo" href="#">Agriculture Empowerment⚡</a>
+              <div class="rightSection">
+                  <div class="menu-toggle" onclick={toggleMenu}>
+                      <div class="bar"></div>
+                      <div class="bar"></div>
+                      <div class="bar"></div>
+                      
+                  </div>
+                  <div class="menu-items">
+                      <h1 class="menu-item" onclick={handleHomeClick} data-type="home">HOME</h1>
+                      <h1 class="menu-item" onclick={handleUtility} data-type="utilities">SEEDS AND FERTILIZERS</h1>
+                      <h1 class="menu-item" onclick={handlemyMaintainanceReqClick} data-type="maintainanceReq">MARKET TRENDS</h1>
+                      <h1 class="menu-item" onclick={handlefeedbackClick} data-type="feedback">NEWS AND TIPS</h1>
+                      <h1 class="menu-item" onclick={handleTraingSupportClick} data-type="trainingnsupport">TRAINING AND SUPPORT</h1>
+                      <h1 class="menu-item" onclick={handlemyProfileClick} data-type="myprofile">FEEDBACK</h1>
+                  </div>
+              </div>
+          </div>
+      </nav>
+  </div>
+  
+      <template if:true={showEventScreen}>
+          <c-event-screen></c-event-screen>
+      </template>
+      <template if:true={ShowMyProfile}>
+          <c-my-profile></c-my-profile>
+      </template>
+      
+      <template if:true={showUtility}>
+          <c-utility-screen></c-utility-screen>
+  
+      </template>
+  
+      </template>
+</template>

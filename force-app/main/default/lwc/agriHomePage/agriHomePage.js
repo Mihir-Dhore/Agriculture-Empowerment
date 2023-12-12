@@ -1,0 +1,95 @@
+import { LightningElement,track } from 'lwc';
+
+export default class AgriHomePage extends LightningElement {
+     
+     // To get current user location and weather details 
+     @track imageURL;
+     @track date;
+     @track result;
+
+     connectedCallback() {
+        this.handleCurrentLocation();
+    }
+
+    handleCurrentLocation() {
+        // Check if geolocation is supported by the browser
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    const currentLocation = {
+                        latitude: position.coords.latitude,
+                        longitude: position.coords.longitude
+                    };
+                    console.log('Current Location:', currentLocation);
+
+                    let endPoint = `https://api.weatherapi.com/v1/current.json?key=6388b321ff7a4f239de125943230612&q=${currentLocation.latitude},${currentLocation.longitude}`;
+                    console.log('Weather API endpoint:', endPoint);
+
+                    fetch(endPoint, {
+                        method: 'GET'
+                    })
+                        .then((response) => response.json())
+                        .then((data) => {
+                            console.log('Weather data:', data);
+                            this.result = data;
+                            this.imageURL = this.result.current.condition.icon;
+                            this.date = this.result.location.localtime;
+                            console.log('image',this.imageURL);
+
+                        })
+                        .catch((error) => {
+                            console.error('Error fetching weather data:', error);
+                        });
+                },
+                (error) => {
+                    console.error('Error getting location:', error);
+                }
+            );
+        } else {
+            console.error('Geolocation is not supported by this browser.');
+        }
+    }
+
+
+    //API Fetch Data
+    @track searchValue;
+    handleSearchChange(event){
+        this.searchValue = event.target.value;
+     }     
+   //   let endPoint = `https://api.weatherapi.com/v1/current.json?key=6388b321ff7a4f239de125943230612&q=${currentLocation.latitude},${currentLocation.longitude}`;
+
+    //For agriculture API
+    @track agriData;
+    @track showMarketData = false;
+
+    handleAgriClick(){
+    this.showMarketData = true;
+      // Get current date
+    const today = new Date();
+
+    // Get day, month, and year
+    const day = today.getDate();
+    const month = today.getMonth() + 1; // Months are zero-based, so add 1
+    const year = today.getFullYear();
+
+    // Format the date
+    const formattedDate = `${day}/${month}/${year}`;
+
+    console.log(formattedDate);
+                
+        let endPoint = `https://api.data.gov.in/catalog/6141ea17-a69d-4713-b600-0a43c8fd9a6c?api-key=579b464db66ec23bdd000001cdd3946e44ce4aad7209ff7b23ac571b&format=json&filters%5Bdistrict%5D=${this.searchValue}&filters%5Barrival_date%5D=${formattedDate}`;
+        fetch(endPoint,{
+            method: "GET"
+        })
+        .then((response)=> response.json())
+        .then((data) => {
+            console.log('data',data);
+            this.agriData = data.records;
+        }).catch(error=>{
+            console.error('Error fetching data:', error);
+        });
+
+    }
+
+ 
+}

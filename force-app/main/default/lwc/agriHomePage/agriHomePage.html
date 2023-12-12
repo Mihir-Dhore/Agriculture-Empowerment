@@ -1,0 +1,56 @@
+<template>
+    <!-- <div class="main"> -->
+        <div class="card">
+            <template if:true={result}>
+                <div class="card-content">
+                    <div class="weather-info">
+                        <img class="weather-icon" src={imageURL} alt="Weather Icon"/>
+                        <p class="condition">{result.current.condition.text}</p>
+                    </div>
+                    <div class="additional-info">
+                        <div style="display: flex;justify-content:space-between">
+                            <p class="degree">{result.current.feelslike_c}°C   |  </p>
+                            <p class="degree"> {result.current.feelslike_f} F</p>    
+                        </div>
+
+                        <p class="location">{result.location.name}, {result.location.region}, {result.location.country}</p>
+                        <p class="local-time">{date}</p>
+                    </div>
+                </div>
+            </template>
+        </div>   
+
+        <div>
+            <lightning-input 
+              type="text"
+              onchange={handleSearchChange}
+              value={searchValue}
+              label="Enter City Name"
+            ></lightning-input>
+            <lightning-button 
+              variant="Brand"
+              label="Agri Click" 
+              onclick={handleAgriClick} 
+            ></lightning-button><br><br>
+    
+            <!-- Agri -->
+            <div class="Agricard">
+                <template if:true={showMarketData}>
+                    <h1>Today's Market:</h1>
+                    <div class="Agricard-content">
+                    <template for:each={agriData} for:item="marketItem">
+                        <div key={marketItem.id}>
+                            <p>{marketItem.state}, {marketItem.district}, {marketItem.market}</p>
+                            <p>Commodity: {marketItem.commodity}</p>
+                            <p>Arrival Date: {marketItem.arrival_date}</p>
+                            <p>Min Price: {marketItem.min_price}</p>
+                            <p>Max Price: {marketItem.max_price}</p>
+                            <p>Modal Price: {marketItem.modal_price}</p>
+                        </div>
+                    </template>
+                    </div>
+                </template>
+        </div>         
+      </div>
+    <!-- </div>          -->
+ </template>
