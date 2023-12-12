@@ -1,4 +1,5 @@
 <template>
+    <!-- ******************Weather -Start******************* -->
     <!-- <div class="main"> -->
         <div class="card">
             <template if:true={result}>
@@ -19,21 +20,20 @@
                 </div>
             </template>
         </div>   
+    <!-- ******************Weather -END******************* -->
 
+              <!--******************* Agri - Start ************************-->
         <div>
-            <lightning-input 
-              type="text"
-              onchange={handleSearchChange}
-              value={searchValue}
-              label="Enter City Name"
-            ></lightning-input>
-            <lightning-button 
-              variant="Brand"
-              label="Agri Click" 
-              onclick={handleAgriClick} 
-            ></lightning-button><br><br>
-    
-            <!-- Agri -->
+            <lightning-combobox
+                name="progress"
+                label="Status"
+                value={searchValue}
+                placeholder="Select Progress"
+                options={options}
+                onchange={handleSearchChange}
+                required>
+            </lightning-combobox>
+ 
             <div class="Agricard">
                 <template if:true={showMarketData}>
                     <h1>Today's Market:</h1>
@@ -50,7 +50,8 @@
                     </template>
                     </div>
                 </template>
-        </div>         
-      </div>
-    <!-- </div>          -->
+            </div>         
+        </div>
+            <!-- ******************Agri -END******************* -->
+
  </template>
