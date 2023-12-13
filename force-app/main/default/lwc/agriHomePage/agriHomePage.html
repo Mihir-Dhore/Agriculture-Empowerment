@@ -47,8 +47,6 @@
             </div>
             <div class="data-container">
                 <template if:true={showMarketData}>
-                    <!-- <h1>Today's Market:</h1> -->
-                    <!-- <div class="datamarket"> -->
                     <template for:each={agriData} for:item="marketItem">
                         <div class="data-item" key={marketItem.id}>
                             <p style="font-size: large;">{marketItem.state}, {marketItem.district}, {marketItem.market}</p>
@@ -64,5 +62,6 @@
             </div>         
         </div>
             <!-- ******************Agri -END******************* -->
+        
 
  </template>

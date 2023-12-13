@@ -71,9 +71,6 @@ export default class AgriHomePage extends LightningElement {
         { label: 'Adilabad', value: 'Adilabad' },
         { label: 'Hyderabad', value: 'Hyderabad' },
         { label: 'Erode', value: 'Erode' },
-
-
-
     ];
 
     @track showMarketData = false;
@@ -82,6 +79,7 @@ export default class AgriHomePage extends LightningElement {
 
     handleSearchChange(event){
         this.searchValue = event.detail.value;
+        console.log('searcValue',this.searchValue)
         this.showMarketData = true;
         this.fetchMarketData();
      }     

@@ -32,11 +32,11 @@ export default class agriHeaderPage extends NavigationMixin (LightningElement) {
  
     }
 
-    handlemyMaintainanceReqClick(){
+    handleMarketTrendsClick(){
         this[NavigationMixin.Navigate]({
             type: "standard__webPage",
             attributes: {
-               url: "https://thecodingstudio2-dev-ed.develop.my.site.com/sms/s/maintenance-request-page"
+               url: "https://thecodingstudio2-dev-ed.develop.my.site.com/agriEmp/s/market-trends-page"
             }
         });
  
