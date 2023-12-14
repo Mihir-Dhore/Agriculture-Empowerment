@@ -1,3 +1,4 @@
+
 * {
     box-sizing: border-box;
  }
@@ -73,7 +74,7 @@
  }
  
  /* For Mobile View */
- @media screen and (max-width: 780px) {
+ @media screen and (max-width: 805px) {
     .menu-item {
         display: block;
     }
