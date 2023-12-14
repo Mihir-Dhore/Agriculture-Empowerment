@@ -41,11 +41,11 @@ export default class agriHeaderPage extends NavigationMixin (LightningElement) {
         });
  
     }
-     handleUtility(){
+    handleSeedsAndFertilizerClick(){
         this[NavigationMixin.Navigate]({
             type: "standard__webPage",
             attributes: {
-               url: "https://thecodingstudio2-dev-ed.develop.my.site.com/sms/s/utility-page"
+               url: "thecodingstudio2-dev-ed.develop.my.site.com/agriEmp/s/seeds-and-fertilizers-page"
             }
         });
  
@@ -60,6 +60,13 @@ export default class agriHeaderPage extends NavigationMixin (LightningElement) {
         });
  
      }
-
+     handleNewAndTipsClick(){
+        this[NavigationMixin.Navigate]({
+            type: "standard__webPage",
+            attributes: {
+               url: "thecodingstudio2-dev-ed.develop.my.site.com/agriEmp/s/new-and-tips-page"
+            }
+        });
+     }
 
 }

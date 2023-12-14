@@ -53,8 +53,17 @@
                 </div>
             </div>
         </div>
-    
-    </div>
+      </div>
+
+      <!-- Show Map  -->
+      <div class="map">
+        <lightning-map
+          map-markers={mapMarkers}
+          markers-title="Krishi Centre"
+          onmarkerselect={handleMarkerSelect}
+          selected-marker-value={selectedMarkerValue}>
+        </lightning-map>
+      </div>
     <h1 class="YTheading">Insightful Farming Practices</h1>
 
         <div class="video-grid">
@@ -135,19 +144,5 @@
               allowfullscreen
             ></iframe>
           </div>
-          <!-- Add more video items as needed -->
         </div>
-       
-
-
-
-    <!-- <div class="main">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/hgHA2-SARPg?si=SmA1_MR1VuCamSWI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>    
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/g0wkT3mf80U?si=9m8s92Cr5iyXbIp9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>     
-        <iframe width="560" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>   
-        <iframe width="560" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>  
-        <iframe width="560" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>    
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/MIMNRLK804o?si=dDG3oWt02Vf_pPeP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/eLACnABG2LM?si=y0rTdZr2xbRVjJ3h" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>    
-    </div> -->
 </template>

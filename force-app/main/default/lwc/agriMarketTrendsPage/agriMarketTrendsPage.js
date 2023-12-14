@@ -92,5 +92,21 @@ export default class AgriMarketTrendsPage extends LightningElement {
                     console.log('View Shownnnn',this.viewsData);
                 })
             }
-  
+
+            @api myRecordId;
+
+            get encryptedToken() {
+                //use apex to get
+            }
+        
+            get acceptedFormats() {
+                return ['.pdf', '.png'];
+            }
+        
+            handleUploadFinished(event) {
+                // Get the list of uploaded files
+                const uploadedFiles = event.detail.files;
+                alert('No. of files uploaded : ' + uploadedFiles.length);
+            }
+        
 }
