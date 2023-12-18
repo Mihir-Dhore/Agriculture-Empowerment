@@ -1,4 +1,6 @@
 <template>
+
+    <!-- Information Sliding -->
     <marquee class="marque" key={heading.Id} behavior="scroll" scorllamount="10" direction="left">
         Welcome to Agriculture Empowerment, your one-stop destination for staying informed about the latest happenings
         in the
@@ -7,12 +9,13 @@
         landscape, and
         that's why we've curated a comprehensive platform for all your agricultural news needs.
     </marquee>
+
+
     <!-- Heading -->
-
-
     <div class="heading">
         <h6>Cultivating Insights: Latest Agriculture News</h6>
     </div>
+
     <!-- Description -->
     <div class="description">
         <p> Explore the ever-evolving world of agriculture with our curated selection of the latest news and trends.
@@ -31,16 +34,15 @@
 
 
 
-
-
-    <!-- Heading Of All News In Boxes -->
+    <!--All News In Boxes -->
     <div class="data-container">
         <template for:each={StoreNewsTipsData} for:item="data">
             <div key={data.id} class="data-item">
 
-                <div class="image">
-                    <lightning-formatted-rich-text value={data.Image__c}></lightning-formatted-rich-text>
-                </div>
+                <!-- <img class="image" style=" width: 250px; height:150px; padding-left: 5px" src={data.Image__c} alt=""> -->
+                <lightning-formatted-rich-text
+                  value={data.Image__c}    
+                ></lightning-formatted-rich-text>
 
                 <div class="information">
                     <div class="info">
@@ -61,18 +63,8 @@
 
 
 
-
-
-
-
-
-
     <!-- Tips For Agriculture -->
-
-
     <h6 class="agritips">Agriculture Tips: Crop Selection to Harvesting</h6>
-
-
 
     <div class="container">
 
@@ -200,4 +192,10 @@
 
 
     </div>
+
+
+
+
+
+
 </template>

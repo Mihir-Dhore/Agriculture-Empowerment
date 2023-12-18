@@ -56,14 +56,17 @@
       </div>
 
       <!-- Show Map  -->
+      <!--show-footer -->
       <div class="map">
-        <lightning-map
+          <lightning-map
           map-markers={mapMarkers}
-          markers-title="Krishi Centre"
-          onmarkerselect={handleMarkerSelect}
-          selected-marker-value={selectedMarkerValue}>
-        </lightning-map>
+          zoom-level={zoomLevel}
+          list-view={listView}
+          >
+          </lightning-map>    
       </div>
+
+      
     <h1 class="YTheading">Insightful Farming Practices</h1>
 
         <div class="video-grid">

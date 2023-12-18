@@ -6,9 +6,12 @@ export default class AgriNewsAndTips extends LightningElement {
         this.FetchNewsTipsData();
     }
 
+
     @track StoreNewsTipsData;
 
 
+
+    // Fetch News And Tips Data
     FetchNewsTipsData() {
         FetchAllNewsData()
             .then((result) => {
@@ -17,5 +20,4 @@ export default class AgriNewsAndTips extends LightningElement {
 
             });
     }
-
 }
