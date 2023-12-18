@@ -1,6 +1,16 @@
-import { LightningElement,api, track } from 'lwc';
+import { LightningElement,api, track,wire } from 'lwc';
 import insertViews from '@salesforce/apex/AEInsertViews.insertViews';
 import showViews from '@salesforce/apex/AEInsertViews.showViews';
+import FetchSeasonalCalendarData from '@salesforce/apex/AEInsertViews.FetchSeasonalCalendarData';
+
+const columns = [
+    // { label: 'Season Name', fieldName: 'Name', type: 'text' },
+    { label: 'Crop Name', fieldName: 'cropName'},
+    // { label: 'Season Type', fieldName: 'Types_of_Seasons__c', type: 'text' },
+    { label: 'Start Date', fieldName: 'Start_Date__c', type: 'date' },
+    { label: 'End Date', fieldName: 'End_Date__c', type: 'date' },
+    { label: 'Information', fieldName: 'Information__c', type: 'text' }
+];
 
 export default class AgriMarketTrendsPage extends LightningElement {
     
@@ -84,6 +94,7 @@ export default class AgriMarketTrendsPage extends LightningElement {
             @track viewsData;
             connectedCallback(){
                 this.showViews();
+                this.FetchSeasonalCalendarData();
             }
             showViews(){
                 showViews()
@@ -93,20 +104,30 @@ export default class AgriMarketTrendsPage extends LightningElement {
                 })
             }
 
-            @api myRecordId;
-
-            get encryptedToken() {
-                //use apex to get
+            //For Seasonal Calendar
+            seasonalItems;
+            columns = columns;
+            sortDirection = 'asc';
+            sortedBy;
+        
+            FetchSeasonalCalendarData(){
+                FetchSeasonalCalendarData()
+                .then(result=>{
+                    console.log('result',result);
+                    this.seasonalItems = result.map(record =>({
+                        ...record,
+                        cropName: record.Crop__r.Name,
+                    }));
+                     console.log(this.seasonalItems);
+                })
+                .catch(error=>{
+                    console.log('error',error);
+                })
             }
         
-            get acceptedFormats() {
-                return ['.pdf', '.png'];
-            }
-        
-            handleUploadFinished(event) {
-                // Get the list of uploaded files
-                const uploadedFiles = event.detail.files;
-                alert('No. of files uploaded : ' + uploadedFiles.length);
-            }
-        
+            // handleSort(event) {
+            //     this.sortedBy = event.detail.fieldName;
+            //     this.sortDirection = event.detail.sortDirection;
+            //     this.sortData(event.detail.fieldName, event.detail.sortDirection);
+            // }                
 }

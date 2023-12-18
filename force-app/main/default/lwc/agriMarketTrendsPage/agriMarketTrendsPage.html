@@ -8,6 +8,30 @@
         </p>
     </div>
 
+    <!-- Seasonal Calendar - Start -->
+            <div class="slds-p-around_medium">
+                <template if:true={seasonalItems}>
+                    <lightning-datatable
+                        key-field="Id"
+                        data={seasonalItems}
+                        columns={columns}
+                        hide-checkbox-column
+                        default-sort-direction="asc"
+                        sorted-direction={sortDirection}
+                        sorted-by={sortedBy}
+                        onsort={handleSort}
+                    ></lightning-datatable>
+                </template>
+                <template if:false={seasonalItems}>
+                    <div class="slds-text-align_center slds-p-vertical_medium">
+                        No seasonal data available.
+                    </div>
+                </template>
+            </div>
+    
+    <!-- Seasonal Calendar - End -->
+
+
     <lightning-layout class="container">
         <lightning-layout-item size="8" class="market-data">
     <h1 style="text-align: center;" class="main-description">View Historical Data By Selecting Your City</h1>
