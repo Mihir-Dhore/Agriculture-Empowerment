@@ -1,18 +1,36 @@
-# Salesforce DX Project: Next Steps
+Fetch Data of API using Javascript
+```
+handleFetchData() {
+    let endPoint = `https://api.weatherapi.com/v1/current.json?key=6388b321ff7a4f239de125943230612&q=${currentLocation.latitude},${currentLocation.longitude}`;
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+    fetch(endPoint, {
+        method: 'GET'
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            console.log('Weather data:', data);
+            this.result = data;
+            this.imageURL = this.result.current.condition.icon;
+            this.date = this.result.location.localtime;
+            console.log('image',this.imageURL);
 
-## How Do You Plan to Deploy Your Changes?
-
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
-
-## Configure Your Salesforce DX Project
-
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
-
-## Read All About It
-
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+        })
+        .catch((error) => {
+            console.error('Error fetching weather data:', error);
+        });
+}
+```
+To find current location of user using Javascript
+```
+handleCurrentLocation() {
+        // Check if geolocation is supported by the browser
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    const currentLocation = {
+                        latitude: position.coords.latitude,
+                        longitude: position.coords.longitude
+                    };
+                    console.log('Current Location:', currentLocation);
+}
+```
