@@ -32,12 +32,15 @@
 
 .data-container {
     margin-top: 20px;
-    /* display: flex;
+    display: flex;
     flex-wrap: wrap;
-    justify-content: space-around; */
+    justify-content: space-around;
 }
 
 .data-item {
+    width: 220px;
+    height: 220px;
+
     border: 1px solid #ddd;
     padding: 15px;
     margin-bottom: 10px;
@@ -93,25 +96,28 @@
         flex: 0 0 100%;
         margin-right: 0;
     }
+
+    .data-container{
+        width: 100%;
+    }
 }
 
 
 /* Seasonal Calendar */
-/* Apply your custom styling here */
-.slds-card {
-    width: 90%;
-    margin: 20px auto;
+.custom-card {
+    border: 1px solid #ddd; 
+    border-radius: 8px; 
+    background-color: #f5f5f5; 
+    padding: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.slds-p-around_medium {
-    padding: 20px;
+.custom-datatable {
+    /* Customize the table styling as needed */
+    border-radius: 4px; /* Optional: Add border-radius for rounded corners */
+    background-color: #fff; /* Set a background color for the table */
 }
 
-.slds-text-align_center {
-    text-align: center;
-}
-
-.slds-p-vertical_medium {
-    padding-top: 20px;
-    padding-bottom: 20px;
+.custom-no-data-message {
+    color: #888; /* Set a different color for the no data message */
 }

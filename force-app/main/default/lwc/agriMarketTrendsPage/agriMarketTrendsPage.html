@@ -9,25 +9,30 @@
     </div>
 
     <!-- Seasonal Calendar - Start -->
-            <div class="slds-p-around_medium">
-                <template if:true={seasonalItems}>
-                    <lightning-datatable
-                        key-field="Id"
-                        data={seasonalItems}
-                        columns={columns}
-                        hide-checkbox-column
-                        default-sort-direction="asc"
-                        sorted-direction={sortDirection}
-                        sorted-by={sortedBy}
-                        onsort={handleSort}
-                    ></lightning-datatable>
-                </template>
-                <template if:false={seasonalItems}>
-                    <div class="slds-text-align_center slds-p-vertical_medium">
-                        No seasonal data available.
-                    </div>
-                </template>
-            </div>
+    <h1 style="text-align: center;" class="main-description">Seasonal Calendar</h1>
+    <div class="slds-scrollable_y" style="height:10rem;width:100%" tabindex="0">
+        <div class="custom-card">
+            <template if:true={seasonalItems}>
+                <lightning-datatable
+                    key-field="Id"
+                    data={seasonalItems}
+                    columns={columns}
+                    hide-checkbox-column
+                    class="custom-datatable"
+                    default-sort-direction="asc"
+                    sorted-direction={sortDirection}
+                    sorted-by={sortedBy}
+                    onsort={handleSort}
+                ></lightning-datatable>
+            </template>
+            <template if:false={seasonalItems}>
+                <div class="slds-text-align_center slds-p-vertical_medium custom-no-data-message">
+                    No seasonal data available.
+                </div>
+            </template>
+        </div>
+    </div>
+
     
     <!-- Seasonal Calendar - End -->
 

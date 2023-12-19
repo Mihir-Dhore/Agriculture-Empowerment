@@ -95,7 +95,6 @@ export default class AgriTrainingSupportPage extends LightningElement {
     //     this.selectedMarkerValue = this.mapValue;
     //     console.log('markv',this.selectedMarkerValue)
     // }
-    
 
     @track mapMarkers;
     @track zoomLevel;
@@ -132,5 +131,6 @@ export default class AgriTrainingSupportPage extends LightningElement {
       this.zoomLevel = 10;
       this.listView = "visible";
     }
-  
+
+
 }
