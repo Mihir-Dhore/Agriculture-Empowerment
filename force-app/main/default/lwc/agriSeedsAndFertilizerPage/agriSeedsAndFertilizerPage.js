@@ -1,5 +1,5 @@
 import { LightningElement,track } from 'lwc';
-import HeaderSeedsAndFertilizer from '@salesforce/resourceUrl/SeedsandFertilizers';
+import HeaderSeedsAndFertilizer from '@salesforce/resourceUrl/SeedsandFertilizersss';
 import FetchAllFertilizers from '@salesforce/apex/AEInsertViews.FetchAllFertilizers';
 import FetchAllSeeds from '@salesforce/apex/AEInsertViews.FetchAllSeeds';
 

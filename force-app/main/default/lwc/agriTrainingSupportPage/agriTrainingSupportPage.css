@@ -104,12 +104,12 @@ lightning-map {
     .card {
         font-size:medium;
     }
-         .card-container {
-             flex-direction: column;
-             align-items: center;
-         }
-    
-         .card {
-             margin-bottom: 20px;
-         }    
+    .card-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        margin-bottom: 20px;
+    }    
 }

@@ -11,9 +11,53 @@ export default class agriHeaderPage extends NavigationMixin (LightningElement) {
             menuItems.classList.toggle('show');
         }
     }
-        
+
+    //For active button
+    @track homeClass = '';
+    @track seedsClass = '';
+    @track marketClass = '';
+    @track newsClass = '';
+    @track trainingClass = '';
+    @track feedbackClass = '';
+
+    connectedCallback() {
+        this.setActiveTab();
+    }
+
+    setActiveTab() {
+        const path = window.location.pathname;
+        console.log('Current Path:', path);
+
+        this.resetClasses();
+
+        if (path.includes('home')) {
+            this.homeClass = 'home';
+        } else if (path.includes('/agriEmp/s/seeds-and-fertilizers-page')) {
+            this.seedsClass = 'seeds';
+        } else if (path.includes('market')) {
+            this.marketClass = 'market';
+        } else if (path.includes('/agriEmp/s/new-and-tips-page')) {
+            this.newsClass = 'news';
+        } else if (path.includes('training')) {
+            this.trainingClass = 'training';
+        } else if (path.includes('/agriEmp/s/feedack-page')) {
+            this.feedbackClass = 'feedback';
+        }
+    }
+
+    resetClasses() {
+        this.homeClass = '';
+        this.seedsClass = '';
+        this.marketClass = '';
+        this.newsClass = '';
+        this.trainingClass = '';
+        this.feedbackClass = '';
+    }
 
     handleHomeClick(){
+        this.resetClasses();
+        this.homeClass = 'home';
+
         this[NavigationMixin.Navigate]({
             type: "standard__webPage",
             attributes: {
@@ -23,6 +67,9 @@ export default class agriHeaderPage extends NavigationMixin (LightningElement) {
     }
 
     handleTraingSupportClick(){
+        this.resetClasses();
+        this.trainingClass = 'training';
+
         this[NavigationMixin.Navigate]({
             type: "standard__webPage",
             attributes: {
@@ -33,6 +80,9 @@ export default class agriHeaderPage extends NavigationMixin (LightningElement) {
     }
 
     handleMarketTrendsClick(){
+        this.resetClasses();
+        this.marketClass = 'market';
+
         this[NavigationMixin.Navigate]({
             type: "standard__webPage",
             attributes: {
@@ -42,6 +92,9 @@ export default class agriHeaderPage extends NavigationMixin (LightningElement) {
  
     }
     handleSeedsAndFertilizerClick(){
+        this.resetClasses();
+        this.seedsClass = 'seeds';
+
         this[NavigationMixin.Navigate]({
             type: "standard__webPage",
             attributes: {
@@ -52,6 +105,9 @@ export default class agriHeaderPage extends NavigationMixin (LightningElement) {
      }
 
      handleFeedbackClick(){
+        this.resetClasses();
+        this.feedbackClass = 'feedback';
+
         this[NavigationMixin.Navigate]({
             type: "standard__webPage",
             attributes: {
@@ -61,6 +117,9 @@ export default class agriHeaderPage extends NavigationMixin (LightningElement) {
  
      }
      handleNewAndTipsClick(){
+        this.resetClasses();
+        this.newsClass = 'news';
+
         this[NavigationMixin.Navigate]({
             type: "standard__webPage",
             attributes: {

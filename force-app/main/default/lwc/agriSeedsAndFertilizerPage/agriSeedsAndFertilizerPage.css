@@ -59,14 +59,15 @@
     height: 290px;
     margin: 20px;
     background-color: #abcbb1;
-    border-radius: 15px;
+    border: 1px solid black;
+    border-radius: 8px;
     transition: transform 0.3s ease-in-out;
     word-wrap: break-word;
 
 }
 
 .block:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 
 .image-container {

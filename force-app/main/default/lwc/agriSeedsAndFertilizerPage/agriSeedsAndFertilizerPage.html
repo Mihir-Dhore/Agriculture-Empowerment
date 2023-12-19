@@ -1,8 +1,6 @@
 <template>
 
     <div class="maincontainer">
-
-
         <!-- Image & Text -->
         <div class="container">
             <img class="image" src={HeaderSeedsAndFertilizer} alt="Seeds And Fertilizer"
@@ -37,7 +35,8 @@
                         <p class="Information slds-text-body_regular">{seed.Information__c}
                         </p>
                         <lightning-formatted-url style="margin-left: 7px;" value={seed.Read_More__c}
-                            label="read more..."></lightning-formatted-url>
+                            label="read more...">
+                        </lightning-formatted-url>
                     </div>
                 </div>
             </template>
@@ -63,9 +62,5 @@
                 </div>
             </template>
         </div>
-
-
-    </div> <!--Maindiv-->
-
-    
+    </div>
 </template>
