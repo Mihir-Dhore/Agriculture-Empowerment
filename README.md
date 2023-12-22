@@ -28,8 +28,8 @@ We value your input. Share your thoughts, suggestions, and experiences through o
 
 
 <h1>API Used</h1>
-<h3>Weather API:- </h3>
-<h3>Agricultur API:- </h3>https://api.data.gov.in/catalog/6141ea17-a69d-4713-b600-0a43c8fd9a6c?api-key=579b464db66ec23bdd000001be46e8b8b04c4b746f8c908419d2c4e3&format=json&limit=1000&filters%5Bdistrict%5D=${this.searchValue} 
+<h3>Weather API:- </h3> https://api.weatherapi.com/v1/current.json?key=6388b321ff7a4f239de125943230612&q=${currentLocation.latitude},${currentLocation.longitude}
+<h3>Agricultur API:- </h3>https://api.data.gov.in/catalog/6141ea17-a69d-4713-b600-0a43c8fd9a6c?api-key=579b464db66ec23bdd000001be46e8b8b04c4b746f8c908419d2c4e3&format=json&limit=1000&filters%5Bdistrict%5D=${this.searchValue}  (From Website https://data.gov.in/ )
 
 
 
