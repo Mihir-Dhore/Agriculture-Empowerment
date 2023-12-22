@@ -4,7 +4,7 @@
 
 At Agricultural Empowerment , we're dedicated to providing farmers with a one-stop solution for all their agricultural needs. Our platform is designed to empower farmers with valuable insights, real-time market data, and a wealth of resources to enhance their farming experience.
 
-Market Insights:
+<h3>Market Insights:</h3> <br>
 Stay informed about the current market rates of vegetables specific to your city. Our platform not only displays real-time prices but also highlights the maximum and minimum rates, allowing farmers to make informed decisions and compare market trends effortlessly.
 
 Weather Reports:
