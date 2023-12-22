@@ -1,5 +1,10 @@
 <b>Project Description:-</b> 
 
+
+https://github.com/Mihir-Dhore/Agriculture-Empowerment/assets/83826641/20cfa5af-982b-482a-b503-12305ad046fe
+
+
+
 <h1>Agricultural Empowerment</h1>
 
 At Agricultural Empowerment , we're dedicated to providing farmers with a one-stop solution for all their agricultural needs. Our platform is designed to empower farmers with valuable insights, real-time market data, and a wealth of resources to enhance their farming experience.
