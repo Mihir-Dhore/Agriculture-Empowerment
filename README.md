@@ -27,6 +27,11 @@ Visit our training and support page for expert guidance. Access training materia
 We value your input. Share your thoughts, suggestions, and experiences through our anonymous feedback page. Your feedback is essential in helping us continually improve our platform to better serve the farming community.
 
 
+<h1>API Used</h1>
+<h3>Weather API:- </h3>
+<h3>Agricultur API:- </h3>https://api.data.gov.in/catalog/6141ea17-a69d-4713-b600-0a43c8fd9a6c?api-key=579b464db66ec23bdd000001be46e8b8b04c4b746f8c908419d2c4e3&format=json&limit=1000&filters%5Bdistrict%5D=${this.searchValue} 
+
+
 
 
 
