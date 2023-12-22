@@ -1,6 +1,6 @@
 <b>Project Description:-</b> 
 
-Agricultural Empowerment - Nurturing Growth, Empowering Farmers.
+<h1>Agricultural Empowerment</h1>
 
 At Agricultural Empowerment , we're dedicated to providing farmers with a one-stop solution for all their agricultural needs. Our platform is designed to empower farmers with valuable insights, real-time market data, and a wealth of resources to enhance their farming experience.
 
