@@ -1,7 +1,7 @@
 import { LightningElement,api, track,wire } from 'lwc';
-import insertViews from '@salesforce/apex/AEInsertViews.insertViews';
-import showViews from '@salesforce/apex/AEInsertViews.showViews';
-import FetchSeasonalCalendarData from '@salesforce/apex/AEInsertViews.FetchSeasonalCalendarData';
+import insertViews from '@salesforce/apex/AgricultureEmpowerment.insertViews';
+import showViews from '@salesforce/apex/AgricultureEmpowerment.showViews';
+import FetchSeasonalCalendarData from '@salesforce/apex/AgricultureEmpowerment.FetchSeasonalCalendarData';
 
 const columns = [
     
@@ -47,18 +47,34 @@ export default class AgriMarketTrendsPage extends LightningElement {
         this.showMarketData = true;
     }
 
+    @track commodities = [
+        {label:'Maize', value:'Maize'},
+        {label:'Beans', value:'Beans'},
+        {label:'Beetroot', value:'Beetroot'},
+        {label:'Drumstick', value:'Drumstick'},
+        {label:'Methi(Leaves)', value:'Methi(Leaves)'},
+        {label:'Mint(Pudina)', value:'Mint(Pudina)'},
+        {label:'Rajgir', value:'Rajgir'},
+        {label:'Methi(Leaves)', value:'Methi(Leaves)'},
+        {label:'Onion', value:'Onion'},
+        {label:'Bottle gourd', value:'Bottle gourd'},
+        {label:'Ginger(Green)', value:'Ginger(Green)'},
+        {label:'Guar', value:'Guar'},
+        {label:'Soyabean', value:'Soyabean'},
+        {label:'Carrot', value:'Carrot'},
+        {label:'Chilly Capsicum', value:'Chilly Capsicum'},
+
+    ];
+
+    @track searchCommodity;
+    handleCommodityChange(event){
+        this.searchCommodity = event.detail.value;
+        console.log(this.searchCommodity);
+        this.fetchMarketDataUsingCommodity();
+
+    }
+
      fetchMarketData(){
-        // const today = new Date();
-        // console.log('today',today)
-
-        // for(let i=1;i<=30;i++){
-        //     const previousDate = new Date(today);
-        //     previousDate.setDate(today.getDate() - i);
-        //     console.log('previousDate',previousDate)
-
-        //     const formattedDate = `${previousDate.getDate()}/${previousDate.getMonth() + 1}/${previousDate.getFullYear()}`;
-        //     console.log(formattedDate)
-        // }
             let endPoint = `https://api.data.gov.in/catalog/6141ea17-a69d-4713-b600-0a43c8fd9a6c?api-key=579b464db66ec23bdd000001be46e8b8b04c4b746f8c908419d2c4e3&format=json&limit=1000&filters%5Bdistrict%5D=${this.searchValue}`;
 
                 fetch(endPoint,{
@@ -74,6 +90,22 @@ export default class AgriMarketTrendsPage extends LightningElement {
 
             }
 
+            fetchMarketDataUsingCommodity(){
+                let endPoint = `https://api.data.gov.in/catalog/6141ea17-a69d-4713-b600-0a43c8fd9a6c?api-key=579b464db66ec23bdd000001be46e8b8b04c4b746f8c908419d2c4e3&format=json&limit=1000&filters%5Bdistrict%5D=${this.searchValue}&filters%5Bcommodity%5D=${this.searchCommodity}`
+    
+                    fetch(endPoint,{
+                        method: "GET"
+                    })
+                    .then((response)=> response.json())
+                    .then((data) => {
+                        console.log('data',data);
+                        this.agriData = data.records;
+                    }).catch(error=>{
+                        console.error('Error fetching data:', error);
+                    });
+    
+                }
+    
             //to insert View
             @track viewValue;
             handleViewChange(event){

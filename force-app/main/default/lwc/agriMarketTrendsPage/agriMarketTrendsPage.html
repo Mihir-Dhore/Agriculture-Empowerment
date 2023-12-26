@@ -1,6 +1,5 @@
 <template>
     <div class="main">
-
         <div class="main-container">
             <h1 class="main-heading">"Smart Farming Starts Here: Market Insights for Success"</h1>
             <p class="main-description">
@@ -43,8 +42,17 @@
             <lightning-layout-item size="8" class="market-data">
         <h1 style="text-align: center;" class="main-description">View Historical Data By Selecting Your City</h1>
 
+        <div class="combobox">
+            <div class="cityDropDown">
                 <lightning-combobox name="city" label="Select City" value={searchValue} placeholder="Choose a City"
                     options={options} onchange={handleCityChange}></lightning-combobox>
+            </div>
+            <div class="commodityDropDown">
+                <lightning-combobox name="commodity" label="Select Commodity" value={searchCommodity} placeholder="Choose a Commodity"
+                options={commodities} onchange={handleCommodityChange}></lightning-combobox>
+            </div>
+        </div>
+
 
                 <div class="data-container">
                     <template if:true={showMarketData}>

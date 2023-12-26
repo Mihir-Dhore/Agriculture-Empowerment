@@ -48,6 +48,9 @@
                 >
               </lightning-combobox>
             </div>
+            <template if:true={showMarketMsg}>
+                <h1 style="text-align: center;">Market is About to Open</h1>
+            </template>
             <div class="data-container">
                 <template if:true={showMarketData}>
                     <template for:each={agriData} for:item="marketItem">

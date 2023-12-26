@@ -84,6 +84,7 @@ export default class AgriHomePage extends LightningElement {
         this.fetchMarketData();
      }     
 
+     @track showMarketMsg = false;
      fetchMarketData(){
         // Get current date
         const today = new Date();
@@ -104,6 +105,11 @@ export default class AgriHomePage extends LightningElement {
             .then((response)=> response.json())
             .then((data) => {
                 console.log('data',data);
+                if(data.records.length == 0){
+                    this.showMarketMsg = true;
+                }else{
+                    this.showMarketMsg = false;
+                }
                 this.agriData = data.records;
             }).catch(error=>{
                 console.error('Error fetching data:', error);
