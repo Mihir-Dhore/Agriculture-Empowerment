@@ -4,6 +4,7 @@ import showViews from '@salesforce/apex/AEInsertViews.showViews';
 import FetchSeasonalCalendarData from '@salesforce/apex/AEInsertViews.FetchSeasonalCalendarData';
 
 const columns = [
+    
     // { label: 'Season Name', fieldName: 'Name', type: 'text' },
     { label: 'Crop Name', fieldName: 'cropName'},
     // { label: 'Season Type', fieldName: 'Types_of_Seasons__c', type: 'text' },
