@@ -51,7 +51,6 @@ export default class AgriHomePage extends LightningElement {
 
     //For DropDown
     @track options = [
-        { label: '---', value: '---' },
         { label: 'Pune', value: 'Pune' },
         { label: 'Surat', value: 'Surat' },
         { label: 'Nashik', value: 'Nashik' },

@@ -8,12 +8,12 @@
                 <div class="card-content">
                     <div class="weather-info">
                         <img class="weather-icon" src={imageURL} alt="Weather Icon"/>
-                        <p class="condition">{result.current.condition.text}</p>
+                        <p class="condition">{result.current.condition.text}</p>  
                     </div>
                     <div class="additional-info">
-                        <div style="display: flex;justify-content:space-between">
-                            <p class="degree">{result.current.feelslike_c}°C   |  </p>
-                            <p class="degree"> {result.current.feelslike_f} F</p>    
+                        <div>
+                            <p class="degree"><b>{result.current.feelslike_c}°C </b></p>  
+                            <!-- <p class="degree"> {result.current.feelslike_f} F</p>     -->
                         </div>
 
                         <p class="location">{result.location.name}, {result.location.region}, {result.location.country}</p>

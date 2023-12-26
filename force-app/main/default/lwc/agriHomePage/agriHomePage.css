@@ -6,7 +6,7 @@
     color: rgb(54, 1, 1);
     font-size: medium;
 }
-.card {
+/* .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     background-color: #95FDD8;
@@ -22,11 +22,6 @@
     display: flex;
     justify-content: space-between;
     padding: 20px;
-}
-
-.weather-info {
-    /* display: flex;
-    align-items: center; */
 }
 
 .weather-icon {
@@ -59,8 +54,41 @@
     font-size: 14px;
     color: #666;
     margin: 0;
-}
+} */
 
+.card{
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    border: 1px solid #3f3b3b;
+    border-radius: 4px;
+    /* margin-left: 30%;
+    margin-right: 30%; */
+    padding: 30px;
+    background-color: #504e5e;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s ease-in-out; 
+}
+.card:hover {
+    transform: scale(1.01);
+}
+.card-content{
+    border: 1px solid #332d2d;
+    border-radius: 4px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 60px;
+    padding-right: 60px;
+    background-color: #fff;
+
+}
+.degree{
+    font-size: x-large;
+}
+.location{
+    color: brown;
+    font-size: large;
+}
 
 /* Show all Agriculture Data */
 .data-container {
