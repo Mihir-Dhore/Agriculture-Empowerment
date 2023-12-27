@@ -351,3 +351,104 @@ export default class Header extends NavigationMixin (LightningElement) {
 
 }
 ```
+To Convert the whole lwc Page From English Language to Hindi Using Custom Labels:-
+APEX Class:-
+```
+public without Sharing class AgricultureEmpowerment {
+       @AuraEnabled
+    public static String getTranslatedLabel(String labelName, String language) {
+       // return System.Label.get('', labelName, language);
+        String res = System.Label.get('', labelName, language);
+        System.debug('result Hindi '+res);
+        return res;
+    }
+}
+```
+JS:-
+```
+import getTranslatedLabel from '@salesforce/apex/AgricultureEmpowerment.getTranslatedLabel';
+export default class AgriMarketTrendsPage extends LightningElement {
+    
+        //Convert to Hindi - Start
+        @track selectedLanguage = 'English'; // Default language
+        @track languageOptions = [
+            { label: 'English', value: 'English' },
+            { label: 'Hindi', value: 'Hindi' },
+        ];
+    
+        @track showHindiData = false;
+        @track storeHindiData;
+        @track showEnglishData = true;
+        @track language;
+        @track labelName = 'Agriculture_Empowerment';
+        handleLanguageChange(event) {
+            this.selectedLanguage = event.detail.value;
+            console.log('selected vAlue', this.selectedLanguage);
+            if(this.selectedLanguage==='Hindi')
+            {
+                console.log('hindi yes')
+    
+                this.language = 'hi'
+                this.showHindiData = true;
+                this.showEnglishData = false;
+    
+    
+            }else {
+                console.log('english yes')
+                this.language = 'en'
+                this.showEnglishData = true;
+                this.showHindiData = false;
+    
+            }
+            this.loadTranslatedLabels();
+        }
+        loadTranslatedLabels() {
+            if (this.selectedLanguage === this.selectedLanguage) {
+                getTranslatedLabel( {labelName:this.labelName, language: this.language })
+                    .then(result => {
+                        console.log('resuhnidengkish',result);
+                        this.storeHindiData = result;
+    
+                        console.log('storeHindiData ',this.storeHindiData);
+                        // this.label = JSON.parse(JSON.stringify(result));
+                        // console.log('label result',this.label);
+    
+                    })
+                    .catch(error => {
+                        console.error('Error fetching translated label:', error);
+                    });
+            } else {
+                this.label = label;
+            }
+        }
+    
+        //Convert to Hindi - End
+```
+HTML:-
+```
+    <lightning-combobox
+    name="language"
+    label="Select Language"
+    value={selectedLanguage}
+    options={languageOptions}
+    onchange={handleLanguageChange}
+></lightning-combobox>
+<div class="main">
+        <div class="main-container">
+         <template if:true={showEnglishData}>
+                <h1 class="main-heading">"Smart Farming Starts Here: Market Insights for Success"</h1>
+                <p class="main-description">
+                    Welcome to the Market Trends page, your gateway to a wealth of insights that can revolutionize your 
+                    farming strategy. Stay ahead of the curve by delving into historical data and understanding the dynamic
+                    shifts in crop prices.
+                </p>
+         </template>
+        <template if:true={showHindiData}>
+            <h1 class="main-heading">"स्मार्ट खेती यहां से शुरू होती है: सफलता के लिए बाजार अंतर्दृष्टि"</h1>
+            <p class="main-description">
+                {storeHindiData}
+            </p>
+        </template>
+ 
+        </div>
+```
