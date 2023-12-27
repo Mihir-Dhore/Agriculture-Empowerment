@@ -1,6 +1,15 @@
 <template>
     <!-- ******************Weather -Start******************* -->
 
+
+    <lightning-combobox
+        name="language"
+        label="Select Language"
+        value={selectedLanguage}
+        options={languageOptions}
+        onchange={handleLanguageChange}
+    ></lightning-combobox>
+
     <div class="main">
         <marquee class="marque">WELCOME TO THE AGRICULTURE EMPOWERMENT SITE</marquee>
         <div class="card">
@@ -26,17 +35,26 @@
 
     
               <!--******************* Agri - Start ************************-->
-        <div>
-            <h1 class="heading">City Market Insights</h1>
-            <p class="main-description">
-                City Market Insights provides a comprehensive overview of local agricultural markets, offering 
-                you a detailed glimpse into the dynamics of each city's agricultural landscape. Explore real-time 
-                data on commodities, arrival dates, pricing trends, and more. Gain valuable insights to make 
-                informed decisions in the ever-evolving world of agriculture. Whether you're a farmer, trader, or 
-                enthusiast, City Market Insights equips you with the knowledge needed to navigate and thrive in your city's agricultural markets. <br> <br>
-                Select Your City to Know More About Market!
-            </p>
 
+        <div>
+            <template if:true={showEnglishData}>
+                <h1 class="heading">City Market Insights</h1>
+
+                <p class="main-description">
+                    City Market Insights provides a comprehensive overview of local agricultural markets, offering 
+                    you a detailed glimpse into the dynamics of each city's agricultural landscape. Explore real-time 
+                    data on commodities, arrival dates, pricing trends, and more. Gain valuable insights to make 
+                    informed decisions in the ever-evolving world of agriculture. Whether you're a farmer, trader, or 
+                    enthusiast, City Market Insights equips you with the knowledge needed to navigate and thrive in your city's agricultural markets. <br> <br>
+                    Select Your City to Know More About Market!
+                </p>
+            </template>
+           
+            <template if:true={showHindiData}>
+                <h1 class="heading">सिटी मार्केट इनसाइट्स</h1>
+                <p class="main-description"> {storeHindiData}</p>
+            </template>
+  
 
             <div style="margin-left:100px;margin-right:100px;margin-bottom:30px;">
                 <lightning-combobox

@@ -1,12 +1,29 @@
 <template>
+    <lightning-combobox
+    name="language"
+    label="Select Language"
+    value={selectedLanguage}
+    options={languageOptions}
+    onchange={handleLanguageChange}
+></lightning-combobox>
+
     <div class="main">
         <div class="main-container">
-            <h1 class="main-heading">"Smart Farming Starts Here: Market Insights for Success"</h1>
+         <template if:true={showEnglishData}>
+                <h1 class="main-heading">"Smart Farming Starts Here: Market Insights for Success"</h1>
+                <p class="main-description">
+                    Welcome to the Market Trends page, your gateway to a wealth of insights that can revolutionize your 
+                    farming strategy. Stay ahead of the curve by delving into historical data and understanding the dynamic
+                    shifts in crop prices.
+                </p>
+         </template>
+        <template if:true={showHindiData}>
+            <h1 class="main-heading">"स्मार्ट खेती यहां से शुरू होती है: सफलता के लिए बाजार अंतर्दृष्टि"</h1>
             <p class="main-description">
-                Welcome to the Market Trends page, your gateway to a wealth of insights that can revolutionize your 
-                farming strategy. Stay ahead of the curve by delving into historical data and understanding the dynamic
-                shifts in crop prices.
+                {storeHindiData}
             </p>
+        </template>
+ 
         </div>
 
         <!-- Seasonal Calendar - Start -->

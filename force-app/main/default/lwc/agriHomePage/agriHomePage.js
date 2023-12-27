@@ -1,7 +1,65 @@
-import { LightningElement,track } from 'lwc';
+import { LightningElement,track,wire } from 'lwc';
+import label from '@salesforce/label/c.Agriculture_Empowerment';
+import getTranslatedLabel from '@salesforce/apex/AgricultureEmpowerment.getTranslatedLabel';
+// import { refreshApex } from '@salesforce/apex';
 
 export default class AgriHomePage extends LightningElement {
      
+    //Convert to Hindi - Start
+    @track selectedLanguage = 'English'; // Default language
+    @track languageOptions = [
+        { label: 'English', value: 'English' },
+        { label: 'Hindi', value: 'Hindi' },
+    ];
+
+    @track showHindiData = false;
+    @track storeHindiData;
+    @track showEnglishData = true;
+    @track language;
+    @track labelName = 'Agriculture_Empowerment';
+    handleLanguageChange(event) {
+        this.selectedLanguage = event.detail.value;
+        console.log('selected vAlue', this.selectedLanguage);
+        if(this.selectedLanguage==='Hindi')
+        {
+            console.log('hindi yes')
+
+            this.language = 'hi'
+            this.showHindiData = true;
+            this.showEnglishData = false;
+
+
+        }else {
+            console.log('english yes')
+            this.language = 'en'
+            this.showEnglishData = true;
+            this.showHindiData = false;
+
+        }
+        this.loadTranslatedLabels();
+    }
+    loadTranslatedLabels() {
+        if (this.selectedLanguage === this.selectedLanguage) {
+            getTranslatedLabel( {labelName:this.labelName, language: this.language })
+                .then(result => {
+                    console.log('resuhnidengkish',result);
+                    this.storeHindiData = result;
+
+                    console.log('storeHindiData ',this.storeHindiData);
+                    // this.label = JSON.parse(JSON.stringify(result));
+                    // console.log('label result',this.label);
+
+                })
+                .catch(error => {
+                    console.error('Error fetching translated label:', error);
+                });
+        } else {
+            this.label = label;
+        }
+    }
+
+    //Convert to Hindi - End
+
      @track imageURL;
      @track date;
      @track result;
@@ -9,6 +67,8 @@ export default class AgriHomePage extends LightningElement {
      //To get Weather Details
      connectedCallback() {
         this.handleCurrentLocation();
+        console.log('Label is here,', label);
+        console.log('Type:',typeof label);
     }
 
     handleCurrentLocation() {

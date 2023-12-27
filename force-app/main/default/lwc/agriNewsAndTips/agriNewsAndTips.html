@@ -1,36 +1,59 @@
 <template>
 
     <!-- Information Sliding -->
-    <marquee class="marque" key={heading.Id} behavior="scroll" scorllamount="10" direction="left">
-        Welcome to Agriculture Empowerment, your one-stop destination for staying informed about the latest happenings
-        in the
-        world of
-        agriculture. We understand the importance of staying up-to-date with the rapidly evolving agricultural
-        landscape, and
-        that's why we've curated a comprehensive platform for all your agricultural news needs.
-    </marquee>
+    <template if:true={showEnglishData}>
+        <marquee class="marque" key={heading.Id} behavior="scroll" scorllamount="10" direction="left">
+            Welcome to Agriculture Empowerment, your one-stop destination for staying informed about the latest happenings
+            in the
+            world of
+            agriculture. We understand the importance of staying up-to-date with the rapidly evolving agricultural
+            landscape, and
+            that's why we've curated a comprehensive platform for all your agricultural news needs.
+        </marquee>
+    </template>
+    <template if:true={showHindiData}>
+        <marquee class="marque" key={heading.Id} behavior="scroll" scorllamount="10" direction="left">
+            कृषि सशक्तिकरण में आपका स्वागत है, नवीनतम घटनाओं के बारे में सूचित रहने के लिए आपका वन-स्टॉप गंतव्य में की दुनिया कृषि। हम तेजी से विकसित हो रही कृषि के साथ अद्यतन रहने के महत्व को समझते हैं परिदृश्य, और इसीलिए हमने आपकी सभी कृषि समाचार आवश्यकताओं के लिए एक व्यापक मंच तैयार किया है।
+       </marquee>
+    </template>
+
+
+
+    <lightning-combobox
+    name="language"
+    label="Select Language"
+    value={selectedLanguage}
+    options={languageOptions}
+    onchange={handleLanguageChange}
+></lightning-combobox>
 
 
     <!-- Heading -->
-    <div class="heading">
-        <h6>Cultivating Insights: Latest Agriculture News</h6>
-    </div>
+    <template if:true={showEnglishData}>
+            <div class="heading">
+                <h6>Cultivating Insights: Latest Agriculture News</h6>
+            </div>
 
-    <!-- Description -->
-    <div class="description">
-        <p> Explore the ever-evolving world of agriculture with our curated selection of the latest news and trends.
-            Stay
-            informed
-            about groundbreaking technologies, sustainable practices, global market updates, and success stories from
-            the farming
-            community. Whether you're a seasoned farmer, agribusiness enthusiast, or simply interested in the future of
-            food
-            production, "Cultivating Insights" is your go-to source for staying connected to the pulse of the
-            agricultural world.
-            Harvest the knowledge you need to thrive in a rapidly changing industry. Join us on the journey of growth,
-            innovation,
-            and sustainable farming practices.</p>
-    </div>
+            <!-- Description -->
+            <div class="description">
+                <p> Explore the ever-evolving world of agriculture with our curated selection of the latest news and trends.
+                    Stay informed about groundbreaking technologies, sustainable practices, global market updates, and success stories from the farming
+                    community. Whether you're a seasoned farmer, agribusiness enthusiast, or simply interested in the future of food
+                    production, "Cultivating Insights" is your go-to source for staying connected to the pulse of the agricultural world.
+                    Harvest the knowledge you need to thrive in a rapidly changing industry. Join us on the journey of growth, innovation,and sustainable farming practices.
+                </p>
+            </div>
+        </template>
+        <template if:true={showHindiData}>
+            <div class="heading">
+                <h6>खेती संबंधी अंतर्दृष्टि: नवीनतम कृषि समाचार</h6>
+            </div>
+
+            <!-- Description -->
+            <div class="description">
+                <p>{storeHindiData}</p>
+            </div>
+        </template>
 
 
 
@@ -192,10 +215,4 @@
 
 
     </div>
-
-
-
-
-
-
 </template>

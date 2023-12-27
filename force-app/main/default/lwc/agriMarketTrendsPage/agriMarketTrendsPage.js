@@ -2,6 +2,7 @@ import { LightningElement,api, track,wire } from 'lwc';
 import insertViews from '@salesforce/apex/AgricultureEmpowerment.insertViews';
 import showViews from '@salesforce/apex/AgricultureEmpowerment.showViews';
 import FetchSeasonalCalendarData from '@salesforce/apex/AgricultureEmpowerment.FetchSeasonalCalendarData';
+import getTranslatedLabel from '@salesforce/apex/AgricultureEmpowerment.getTranslatedLabel';
 
 const columns = [
     
@@ -14,6 +15,61 @@ const columns = [
 ];
 
 export default class AgriMarketTrendsPage extends LightningElement {
+    
+        //Convert to Hindi - Start
+        @track selectedLanguage = 'English'; // Default language
+        @track languageOptions = [
+            { label: 'English', value: 'English' },
+            { label: 'Hindi', value: 'Hindi' },
+        ];
+    
+        @track showHindiData = false;
+        @track storeHindiData;
+        @track showEnglishData = true;
+        @track language;
+        @track labelName = 'Agriculture_Empowerment';
+        handleLanguageChange(event) {
+            this.selectedLanguage = event.detail.value;
+            console.log('selected vAlue', this.selectedLanguage);
+            if(this.selectedLanguage==='Hindi')
+            {
+                console.log('hindi yes')
+    
+                this.language = 'hi'
+                this.showHindiData = true;
+                this.showEnglishData = false;
+    
+    
+            }else {
+                console.log('english yes')
+                this.language = 'en'
+                this.showEnglishData = true;
+                this.showHindiData = false;
+    
+            }
+            this.loadTranslatedLabels();
+        }
+        loadTranslatedLabels() {
+            if (this.selectedLanguage === this.selectedLanguage) {
+                getTranslatedLabel( {labelName:this.labelName, language: this.language })
+                    .then(result => {
+                        console.log('resuhnidengkish',result);
+                        this.storeHindiData = result;
+    
+                        console.log('storeHindiData ',this.storeHindiData);
+                        // this.label = JSON.parse(JSON.stringify(result));
+                        // console.log('label result',this.label);
+    
+                    })
+                    .catch(error => {
+                        console.error('Error fetching translated label:', error);
+                    });
+            } else {
+                this.label = label;
+            }
+        }
+    
+        //Convert to Hindi - End
     
     @track options = [
         { label: '---', value: '---' },
