@@ -1,3 +1,9 @@
+.combobox{
+    display: flex;
+    justify-content: right ;
+    padding-bottom: 15px;
+}
+
 /* heading of page */
 .heading {
     font-size: xx-large;

@@ -19,13 +19,16 @@
 
 
 
-    <lightning-combobox
-    name="language"
-    label="Select Language"
-    value={selectedLanguage}
-    options={languageOptions}
-    onchange={handleLanguageChange}
-></lightning-combobox>
+    <div class="combobox">
+        <lightning-combobox
+        name="language"
+        label="Select Language"
+        value={selectedLanguage}
+        options={languageOptions}
+        onchange={handleLanguageChange}
+    ></lightning-combobox>
+    
+    </div>
 
 
     <!-- Heading -->
@@ -85,76 +88,118 @@
     </div>
 
     <!-- Tips For Agriculture -->
-    <h6 class="agritips">Agriculture Tips: Crop Selection to Harvesting</h6>
+    <template if:true={showEnglishData}>
+        <h6 class="agritips">Agriculture Tips: Crop Selection to Harvesting</h6>
+    </template>
+    <template if:true={showHindiData}>
+        <h6 class="agritips">कृषि युक्तियाँ: फसल चयन से लेकर कटाई तक</h6>
+    </template>
+
 
     <div class="container">
 
         <section id="cropSelection" class="tips-section">
-            <h2>1. Crop Selection</h2>
-            <p>Different types of crops need different soil types, nutrients, and water. Also, the amount of water
-                required by the
-                plant is dependent on the growing season and the climate where it is grown. Proper crop selection is the
-                main factor in
-                successful crop farming. Some important crop selection factors are;</p>
+            <template if:true={showEnglishData}>
+                <h2>1. Crop Selection</h2>
+                <p>Different types of crops need different soil types, nutrients, and water. Also, the amount of water
+                    required by the
+                    plant is dependent on the growing season and the climate where it is grown. Proper crop selection is the
+                    main factor in
+                    successful crop farming. Some important crop selection factors are;</p>
+            </template>
         </section>
+        <template if:true={showHindiData}>
+            <h2>1. फसल चयन</h2>
+            <p>{storeHindiDatatips1}</p>
+        </template>
 
         <section id="soilPreparation" class="tips-section">
-            <h2>2. Soil Preparation</h2>
-            <p>For growing crops, the soil in which it is to be grown is prepared by ploughing, levelling, and manuring.
-                Ploughing is
-                the way of loosening and digging of soil and this helps in proper soil aeration. The soil is distributed
-                evenly and
-                levelled in the process known as levelling. The soil is then manured. Soil texture, compaction, cation
-                exchange
-                capacity, and organic matter content are just a few of the variables that can impact crop growth.
-                Planting crops that
-                are well-suited to your soil characteristics gives you a better chance of success in agriculture.
-                Growers can have an
-                impact on soil characteristics through some cultivation practices, by adding amendments, using certain
-                planting methods,
-                or employing methods to alter factors such as soil temperature, moisture retention, or compaction.
-                Though, working with
-                a soil that already meets most of a given crop’s needs increases the chances of success.</p>
+            <template if:true={showEnglishData}>
+                <h2>2. Soil Preparation</h2>
+                <p>For growing crops, the soil in which it is to be grown is prepared by ploughing, levelling, and manuring.
+                    Ploughing is
+                    the way of loosening and digging of soil and this helps in proper soil aeration. The soil is distributed
+                    evenly and
+                    levelled in the process known as levelling. The soil is then manured. Soil texture, compaction, cation
+                    exchange
+                    capacity, and organic matter content are just a few of the variables that can impact crop growth.
+                    Planting crops that
+                    are well-suited to your soil characteristics gives you a better chance of success in agriculture.
+                    Growers can have an
+                    impact on soil characteristics through some cultivation practices, by adding amendments, using certain
+                    planting methods,
+                    or employing methods to alter factors such as soil temperature, moisture retention, or compaction.
+                    Though, working with
+                    a soil that already meets most of a given crop’s needs increases the chances of success.</p>
+            </template>
+
         </section>
+        <template if:true={showHindiData}>
+            <h2>2. मिट्टी की तैयारी</h2>
+            {storeHindiDatatips2}
+
+        </template>
 
         <section id="seedselection" class="tips-section">
-            <h2>3. Seed Selection</h2>
-            <p>Seed selection is very important for crop growth. A seed must be good so it will grow into a plant
-                otherwise we will not
-                get the result and we must select good and healthy seeds.</p>
+            <template if:true={showEnglishData}>
+                <h2>3. Seed Selection</h2>
+                <p>Seed selection is very important for crop growth. A seed must be good so it will grow into a plant
+                    otherwise we will not
+                    get the result and we must select good and healthy seeds.</p>    
+            </template>
         </section>
+        <template if:true={showHindiData}>
+            <h2>3. बीज चयन</h2>
+            {storeHindiDatatips3}
+        </template>
+
+
 
         <section id="seedSowing" class="tips-section">
-            <h2>4. Seed Sowing</h2>
-            <p>The selection of seeds of good quality crop strains is the main stage of sowing. After the soil
-                preparation,
-                these seeds are dispersed in the field, and this is known as sowing. Seed sowing can be done manually,
-                by hand,
-                or by using seed drilling machines. Some crops like paddy are first grown into seedlings in a small
-                region and
-                then transplanted to the main field. Good quality seeds are out of reach of the majority of farmers
-                because of
-                the exorbitant prices of better seeds.</p>
+            <template if:true={showEnglishData}>
+                <h2>4. Seed Sowing</h2>
+                <p>The selection of seeds of good quality crop strains is the main stage of sowing. After the soil
+                    preparation,
+                    these seeds are dispersed in the field, and this is known as sowing. Seed sowing can be done manually,
+                    by hand,
+                    or by using seed drilling machines. Some crops like paddy are first grown into seedlings in a small
+                    region and
+                    then transplanted to the main field. Good quality seeds are out of reach of the majority of farmers
+                    because of
+                    the exorbitant prices of better seeds.</p>
+            </template>
         </section>
+        <template if:true={showHindiData}>
+            <h2>4. बीज बोना</h2>
+            {storeHindiDatatips4}
+        </template>
 
         <section id="irrigation" class="tips-section">
-            <h2>5. Irrigation</h2>
-            <p>Any sustainable agricultural practice needs a good level of irrigation at regular intervals. The modern
-                method to
-                begin it is the drip irrigation system. Also, this helps you in saving water by not wasting oodles of
-                extra
-                amount or losing it all quickly due to the heat. As it can be machine-controlled, the supervision
-                becomes
-                easier.</p>
-            <p>Irrigation meaning is the supply of water. Sources of water can be wells, ponds, lakes, canals, and dams,
-                etc.
-                Over irrigation can lead to waterlogging and damage the crop. Then, this is frequency and interval
-                between
-                successive irrigation need to be controlled.</p>
+            <template if:true={showEnglishData}>
+                <h2>5. Irrigation</h2>
+                <p>Any sustainable agricultural practice needs a good level of irrigation at regular intervals. The modern
+                    method to
+                    begin it is the drip irrigation system. Also, this helps you in saving water by not wasting oodles of
+                    extra
+                    amount or losing it all quickly due to the heat. As it can be machine-controlled, the supervision
+                    becomes
+                    easier.
+                    Irrigation meaning is the supply of water. Sources of water can be wells, ponds, lakes, canals, and dams,
+                    etc.
+                    Over irrigation can lead to waterlogging and damage the crop. Then, this is frequency and interval
+                    between
+                    successive irrigation need to be controlled.</p>
+            </template>
         </section>
+        <template if:true={showHindiData}>
+            <h2>5. सिंचाई</h2>
+            {storeHindiDatatips5}
+        </template>
 
 
         <section id="fertilizersManures" class="tips-section">
+            <template if:true={showEnglishData}>
+
             <h2>6. Fertilizers and Manures</h2>
             <p>Organic methods will help promote healthy crop growth and some examples of organic methods include
                 composting,
@@ -175,10 +220,15 @@
                 providing essential nutrients to the crop, manure replenishes soil fertility as well. Other main
                 approaches for
                 soil replenishment are vermicomposting, crop rotation, and planting leguminous plants.</p>
+            </template>
         </section>
-
+        <template if:true={showHindiData}>
+            <h2>6.  उर्वरक एवं खाद</h2>
+            {storeHindiDatatips6}
+        </template>
         
         <section id="weedManagement" class="tips-section">
+            <template if:true={showEnglishData}>
             <h2>7. Weed Management</h2>
             <p>Generally, weeds are unwanted plants that grow among crops. They are removed by using weedicides, by
                 manually
@@ -188,9 +238,15 @@
             <p>For controlling weeds, there are many options in organic farming like manual weeding (hand removal,
                 pulling, and
                 cutting), mowing, mechanical cultivation, and thermal control (flaming).</p>
+        </template>
         </section>
+        <template if:true={showHindiData}>
+            <h2>7.  खरपतवार प्रबंधन</h2>
+            {storeHindiDatatips7}
+        </template>
 
         <section id="pestsDiseasesManagement" class="tips-section">
+            <template if:true={showEnglishData}>
             <h2>8. Tips for Pests and Diseases Management in Agriculture</h2>
             <p>Major plant pests and diseases are viruses, bacteria, fungi, and insects greatly impair their
                 productivity. Crops
@@ -198,9 +254,17 @@
                 cultivated
                 grains should be stored safely to avoid product loss.</p>
             <p>Some important mechanical and physical control methods are tillage, mowing, cutting, and mulching.</p>
+       </template>
         </section>
+        <template if:true={showHindiData}>
+            <h2>8.कृषि में कीट और रोग प्रबंधन के लिए युक्तियाँ</h2>
+            {storeHindiDatatips8}
+        </template>
+
+
 
         <section id="harvesting" class="tips-section">
+            <template if:true={showEnglishData}>
             <h2>9. Tips for Harvesting Plants</h2>
             <p>Once the crop is matured, it is cut and gathered carefully, this process is called harvesting. Followed
                 by
@@ -210,8 +274,12 @@
                 to the
                 ripeness and maturity of the produce. Optimal harvest times are early morning hours or the evening when
                 temperature levels are lower. Harvesting of delicate and high-value produce is best done manually.</p>
-        </section>
-
-
+           </template>
+            </section>
+            <template if:true={showHindiData}>
+                <h2>9.पौधों की कटाई के लिए युक्तियाँ </h2>
+                {storeHindiDatatips9}
+            </template>
+    
     </div>
 </template>

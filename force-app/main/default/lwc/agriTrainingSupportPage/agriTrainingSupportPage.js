@@ -1,100 +1,104 @@
 import { LightningElement, track } from 'lwc';
+import getTranslatedLabel from '@salesforce/apex/AgricultureEmpowerment.getTranslatedLabel';
+import translateTNSsection1 from '@salesforce/apex/AgricultureEmpowerment.translateTNSsection1';
+import translateTNSsection2 from '@salesforce/apex/AgricultureEmpowerment.translateTNSsection2';
+import translateTNSsection3 from '@salesforce/apex/AgricultureEmpowerment.translateTNSsection3';
+import translateTNSsection4 from '@salesforce/apex/AgricultureEmpowerment.translateTNSsection4';
+
+
 
 export default class AgriTrainingSupportPage extends LightningElement {
-    //To show Map
-    // mapMarkers = [
-    //     {
-    //         location: {
-    //             City: 'Surat',
-    //             Country: 'India',
-    //             PostalCode: '394101',
-    //             State: 'Gujarat',
-    //             Street: 'Boleward,Surat',
-    //         },
 
-    //         // For onmarkerselect
-    //         value: 'SF1',
+      //Convert to Hindi - Start
+      @track selectedLanguage = 'English'; // Default language
+      @track languageOptions = [
+          { label: 'English', value: 'English' },
+          { label: 'Hindi', value: 'Hindi' },
+      ];
+  
+      @track showHindiData = false;
+      @track storeHindiData;
+      @track showEnglishData = true;
+      @track language;
+      @track labelName = 'TrainingAndSupport';
 
-    //         icon: 'standard:account',
-    //         title: 'TCS', 
-    //         // description: 'This is a long description',
-    //     },
-    //     {
-    //         location: {
-    //             // Location Information
-    //             City: 'Surat',
-    //             Country: 'India',
-    //             PostalCode: '394101',
-    //             State: 'Gujarat',
-    //             Street: 'Pratham Circle Road',
-    //         },
+      @track storeTNSsection1;
+      @track storeTNSsection2;
+      @track storeTNSsection3;
+      @track storeTNSsection4;
 
-    //         value: 'SF2',
+      handleLanguageChange(event) {
+          this.selectedLanguage = event.detail.value;
+          console.log('selected vAlue', this.selectedLanguage);
+          if(this.selectedLanguage==='Hindi')
+          {
+              console.log('hindi yes')
+  
+              this.language = 'hi'
+              this.showHindiData = true;
+              this.showEnglishData = false;
+  
+  
+          }else {
+              console.log('english yes')
+              this.language = 'en'
+              this.showEnglishData = true;
+              this.showHindiData = false;
+  
+          }
+          this.loadTranslatedLabels();
+      }
+      loadTranslatedLabels() {
+          if (this.selectedLanguage === this.selectedLanguage) {
+              getTranslatedLabel( {labelName:this.labelName, language: this.language })
+                  .then(result => {
+                      console.log('resuhnidengkish',result);
+                      this.storeHindiData = result;  
+                  })
+                  .catch(error => {
+                      console.error('Error fetching translated label:', error);
+                  });
+          } else {
+              this.label = label;
+          }
+            //TNSsection1
+            translateTNSsection1()
+            .then(result=>{
+                this.storeTNSsection1 = result;
+                // console.log('codns ',this.storeTNSsection1);
 
-    //         icon: 'standard:account',
-    //         title: 'Krishi Kendra,Surat',
-    //     },
-    //     {
-    //         location: {
-    //             // Location Information
-    //             City: 'Surat',
-    //             Country: 'India',
-    //             PostalCode: '394101',
-    //             State: 'Gujarat',
-    //             Street: 'Goga chauk, Surat',
-    //         },
+            }).catch(error=>{
+                console.error('Error fetching translated label:', error);
+            })
+            //TNSsection2
+            translateTNSsection2()
+            .then(result=>{
+                this.storeTNSsection2 = result;
 
-    //         value: 'SF2',
+            }).catch(error=>{
+                console.error('Error fetching translated label:', error);
+            })
+            //TNSsection1
+            translateTNSsection3()
+            .then(result=>{
+                this.storeTNSsection3 = result;
 
-    //         icon: 'standard:account',
-    //         title: 'Goga Chauk,Surat',
-    //     },
-    //     {
-    //         location: {
-    //             // Location Information
-    //             City: 'Surat',
-    //             Country: 'India',
-    //             PostalCode: '394101',
-    //             State: 'Gujarat',
-    //             Street: 'Railway Station, Surat',
-    //         },
+            }).catch(error=>{
+                console.error('Error fetching translated label:', error);
+            })
+            //TNSsection1
+            translateTNSsection4()
+            .then(result=>{
+                this.storeTNSsection4 = result;
 
-    //         value: 'SF2',
+            }).catch(error=>{
+                console.error('Error fetching translated label:', error);
+            })
 
-    //         icon: 'standard:account',
-    //         title: 'Railway Station, Surat',
-    //     },
-    //     {
-    //         location: {
-    //             // Location Information
-    //             City: 'Surat',
-    //             Country: 'India',
-    //             PostalCode: '394101',
-    //             State: 'Gujarat',
-    //             Street: 'Dumas, Surat',
-    //         },
-
-    //         value: 'SF2',
-
-    //         icon: 'standard:account',
-    //         title: 'Dumas, Surat',
-    //     },
- 
-    // ];
-
-    // @track mapValue;
-    // selectedMarkerValue = 'SF1';
-    // handleMapSearch(event){
-    //     this.mapValue = event.target.value;
-    //     console.log(this.mapValue)
-
-
-    // }
-
-    // handleMarkerSelect() {
-    //     this.selectedMarkerValue = this.mapValue;
-    //     console.log('markv',this.selectedMarkerValue)
-    // }
+      }
+  
+      //Convert to Hindi - End
+  
 
     @track mapMarkers;
     @track zoomLevel;

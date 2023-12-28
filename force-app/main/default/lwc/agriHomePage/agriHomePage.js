@@ -46,9 +46,6 @@ export default class AgriHomePage extends LightningElement {
                     this.storeHindiData = result;
 
                     console.log('storeHindiData ',this.storeHindiData);
-                    // this.label = JSON.parse(JSON.stringify(result));
-                    // console.log('label result',this.label);
-
                 })
                 .catch(error => {
                     console.error('Error fetching translated label:', error);

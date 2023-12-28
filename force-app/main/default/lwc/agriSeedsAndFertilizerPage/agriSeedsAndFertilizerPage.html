@@ -1,11 +1,13 @@
 <template>
-    <lightning-combobox
-    name="language"
-    label="Select Language"
-    value={selectedLanguage}
-    options={languageOptions}
-    onchange={handleLanguageChange}
-></lightning-combobox>
+    <div class="combobox">
+            <lightning-combobox
+            name="language"
+            label="Select Language"
+            value={selectedLanguage}
+            options={languageOptions}
+            onchange={handleLanguageChange}
+        ></lightning-combobox>
+    </div>
 
 
     <div class="maincontainer">

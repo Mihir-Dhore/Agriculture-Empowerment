@@ -1,3 +1,9 @@
+.combox{
+    display: flex;
+    justify-content: right ;
+    padding-bottom: 15px;
+}
+
 .main{
     background: #f5f5f5;
     padding: 10px;

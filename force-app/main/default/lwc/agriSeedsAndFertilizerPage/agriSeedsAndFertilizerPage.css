@@ -1,3 +1,9 @@
+.combobox{
+    display: flex;
+    justify-content: right ;
+    padding-bottom: 15px;
+}
+
 /* Maindiv */
 .maincontainer {
     background-color: white;

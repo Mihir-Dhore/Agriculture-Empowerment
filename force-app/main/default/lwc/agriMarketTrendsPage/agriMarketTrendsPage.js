@@ -56,10 +56,7 @@ export default class AgriMarketTrendsPage extends LightningElement {
                         console.log('resuhnidengkish',result);
                         this.storeHindiData = result;
     
-                        console.log('storeHindiData ',this.storeHindiData);
-                        // this.label = JSON.parse(JSON.stringify(result));
-                        // console.log('label result',this.label);
-    
+                        console.log('storeHindiData ',this.storeHindiData);    
                     })
                     .catch(error => {
                         console.error('Error fetching translated label:', error);

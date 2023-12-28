@@ -1,6 +1,17 @@
 <template>
+  <div class="combox">
+    <lightning-combobox
+    name="language"
+    label="Select Language"
+    value={selectedLanguage}
+    options={languageOptions}
+    onchange={handleLanguageChange}
+   ></lightning-combobox>
+</div>
+
     <div>
         <div class="main-container">
+          <template if:true={showEnglishData}>
             <h1 class="main-heading">Discover the Agricultural Adventure</h1>
             <p class="main-description">
                 Welcome to the Farming, Climate, and Season-Wise Crop Planning Guide, designed to enhance your
@@ -8,49 +19,105 @@
                 This guide covers essential aspects of farming, climate considerations, and recommendations for
                 season-wise crop planning.
             </p>
+          </template>
+          <template if:true={showHindiData}>
+            <h1 class="main-heading">कृषि साहसिक कार्य की खोज करें</h1>
+            <p class="main-description">
+              {storeHindiData}
+            </p>
+
+          </template>
+
         </div>
         <div class="card-container">
             <div class="card">
+              <template if:true={showEnglishData}>
                 <div class="card-header">
-                    <h2>Section 1: <br> Basics of Farming</h2>
-                </div>
-                <div class="card-body">
-                    <p>"Basics of Farming" section serves as a foundational module, providing users with fundamental knowledge about the different types of farming, the significance of soil health, and sustainable practices such as crop rotation and diversification. <br><br>
-                        To read in details click on <a href="https://wikifarmer.com/farming-101-how-to-be-a-farmer-step-by-step-guide/">More...</a> 
-                    </p>
-                </div>
+                  <h2>Section 1: <br> Basics of Farming</h2>
+              </div>
+              <div class="card-body">
+                  <p>"Basics of Farming" section serves as a foundational module, providing users with fundamental knowledge about the different types of farming, the significance of soil health, and sustainable practices such as crop rotation and diversification. <br><br>
+                      To read in details click on <a href="https://wikifarmer.com/farming-101-how-to-be-a-farmer-step-by-step-guide/">More...</a> 
+                  </p>
+              </div>
+              </template>
+              <template if:true={showHindiData}>
+                <div class="card-header">
+                  <h2>धारा 1: <br> खेती की मूल बातें</h2> 
+              </div>
+              <div class="card-body">
+                  <p> {storeTNSsection1}<a href="https://wikifarmer.com/farming-101-how-to-be-a-farmer-step-by-step-guide/">More...</a> 
+                  </p>
+              </div>
+              </template>
+               
             </div>
             <div class="card">
+              <template if:true={showEnglishData}>
                 <div class="card-header">
-                    <h2>Section 2: <br> Climate and Its Impact on Farming</h2>
-                </div>
-                <div class="card-body">
-                    <p> "Climate and Its Impact on Farming" section equips users with knowledge about the broader climate zones, the localized variations in microclimates, and the challenges posed by extreme weather events. <br><br>
-                        To read in details click on <a href="https://india.mongabay.com/2022/11/in-india-climate-impact-on-agriculture-is-already-a-reality-now/">More...</a> 
-                    </p>
-                </div>
+                  <h2>Section 2: <br> Climate and Its Impact on Farming</h2>
+              </div>
+              <div class="card-body">
+                  <p> "Climate and Its Impact on Farming" section equips users with knowledge about the broader climate zones, the localized variations in microclimates, and the challenges posed by extreme weather events. <br><br>
+                      To read in details click on <a href="https://india.mongabay.com/2022/11/in-india-climate-impact-on-agriculture-is-already-a-reality-now/">More...</a> 
+                  </p>
+              </div>
+              </template>
+              <template if:true={showHindiData}>
+                <div class="card-header">
+                  <h2>धारा 2: <br> जलवायु और खेती पर इसका प्रभाव</h2>
+              </div>
+              <div class="card-body">
+                  <p> {storeTNSsection2} <a href="https://india.mongabay.com/2022/11/in-india-climate-impact-on-agriculture-is-already-a-reality-now/">More...</a> 
+                  </p>
+              </div>
+              </template>
             </div>
             <div class="card">
+              <template if:true={showEnglishData}>
                 <div class="card-header">
-                    <h2>Section 3: <br> Season-Wise Crop Planning</h2>
-                </div>
-                <div class="card-body">
-                    <p>The "Season-Wise Crop Planning" section equips with the knowledge and tools needed to plan their crop cultivation effectively throughout the year. By integrating the insights gained from this section with the features of the Salesforce application, farmers can optimize their farming practices and enhance overall productivity.
-                        <br>
-                        To read in details click on <a href="https://testbook.com/ias-preparation/cropping-seasons-in-india">More...</a> 
-                    </p>
-                </div>
+                  <h2>Section 3: <br> Season-Wise Crop Planning</h2>
+              </div>
+              <div class="card-body">
+                  <p>The "Season-Wise Crop Planning" section equips with the knowledge and tools needed to plan their crop cultivation effectively throughout the year. By integrating the insights gained from this section with the features of the Salesforce application, farmers can optimize their farming practices and enhance overall productivity.
+                      <br>
+                      To read in details click on <a href="https://testbook.com/ias-preparation/cropping-seasons-in-india">More...</a> 
+                  </p>
+              </div>
+              </template>
+              <template if:true={showHindiData}>
+                <div class="card-header">
+                  <h2>धारा 3: <br> मौसम के अनुसार फसल योजना</h2>
+              </div>
+              <div class="card-body">
+                  <p>{storeTNSsection3} <a href="https://testbook.com/ias-preparation/cropping-seasons-in-india">More...</a> 
+                  </p>
+              </div>
+              </template>
+              
             </div>
             <div class="card">
+              <template if:true={showEnglishData}>
                 <div class="card-header">
-                    <h2>Section 4: <br> Crop Rotation and Diversification</h2>
-                </div>
-                <div class="card-body">
-                    <p>The "Crop Rotation and Diversification" section equips farmers with knowledge and strategies to implement sustainable practices in their farming operations. By integrating these principles into their cultivation plans, farmers can enhance soil fertility, manage pests effectively, and build a resilient and diverse agricultural system.
-                         <br>
-                        To read in details click on <a href="https://eos.com/blog/crop-rotation/">More...</a> 
-                    </p>
-                </div>
+                  <h2>Section 4: <br> Crop Rotation and Diversification</h2>
+              </div>
+              <div class="card-body">
+                  <p>The "Crop Rotation and Diversification" section equips farmers with knowledge and strategies to implement sustainable practices in their farming operations. By integrating these principles into their cultivation plans, farmers can enhance soil fertility, manage pests effectively, and build a resilient and diverse agricultural system.
+                       <br>
+                      To read in details click on <a href="https://eos.com/blog/crop-rotation/">More...</a> 
+                  </p>
+              </div>
+              </template>
+              <template if:true={showHindiData}>
+                <div class="card-header">
+                  <h2>धारा 4: <br> फसल चक्रण और विविधीकरण</h2>
+              </div>
+              <div class="card-body">
+                  <p>{storeTNSsection4} <a href="https://eos.com/blog/crop-rotation/">More...</a> 
+                  </p>
+              </div>
+
+              </template>
             </div>
         </div>
       </div>

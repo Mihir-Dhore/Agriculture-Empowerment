@@ -1,11 +1,13 @@
 <template>
-    <lightning-combobox
-    name="language"
-    label="Select Language"
-    value={selectedLanguage}
-    options={languageOptions}
-    onchange={handleLanguageChange}
-></lightning-combobox>
+    <div class="combox">
+        <lightning-combobox
+        name="language"
+        label="Select Language"
+        value={selectedLanguage}
+        options={languageOptions}
+        onchange={handleLanguageChange}
+    ></lightning-combobox>
+    </div>
 
     <div class="main">
         <div class="main-container">
@@ -96,7 +98,6 @@
 
                 <p class="public-views">Community Perspectives: <br></p>
                 <template for:each={viewsData} for:item="vd">
-                    
                     <div key={vd.Id} class="public-view-item">
                         <p style="color: #34495e;">{vd.Submission_Date__c}</p>
 
