@@ -1,0 +1,71 @@
+/* Overall Styles */
+.main {
+    font-family: 'Arial', sans-serif;
+    /* max-width: 800px; */
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #eadcdc;
+    border: 1px solid #fff;
+    width: 100%;
+}
+
+/* Custom Box Styles */
+.custom-box {
+    background-color: #f7f7f7;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* Name Styles */
+.name h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Contact Styles */
+.custom-box p {
+    margin: 0;
+    font-size: 16px;
+    color: #555;
+}
+
+/* Website Logo Styles */
+.websitelogo {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+/* Website Styles */
+.website a {
+    text-decoration: none;
+    color: #3498db;
+    font-weight: bold;
+}
+
+.website a:hover {
+    text-decoration: underline;
+}
+
+/* Instagram and LinkedIn Logo Styles */
+.instalinkedin img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+/* Responsive Layout Styles */
+@media only screen and (max-width: 600px) {
+    .websitelogo {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .instalinkedin img {
+        margin-bottom: 10px;
+    }
+}

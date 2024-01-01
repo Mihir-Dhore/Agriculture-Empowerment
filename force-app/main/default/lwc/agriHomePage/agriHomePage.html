@@ -1,18 +1,16 @@
 <template>
     <!-- ******************Weather -Start******************* -->
-
-
-    <div class="combox">
-        <lightning-combobox
-        name="language"
-        label="Select Language"
-        value={selectedLanguage}
-        options={languageOptions}
-        onchange={handleLanguageChange}
-       ></lightning-combobox>
-    </div>
-
     <div class="main">
+        <div class="combox">
+            <lightning-combobox
+            name="language"
+            label="Select Language"
+            value={selectedLanguage}
+            options={languageOptions}
+            onchange={handleLanguageChange}
+           ></lightning-combobox>
+        </div>
+    
         <template if:true={showEnglishData}>
             <marquee class="marque">WELCOME TO THE AGRICULTURE EMPOWERMENT SITE</marquee>
         </template>
