@@ -19,6 +19,8 @@ export default class agriAboutUsPage extends NavigationMixin(LightningElement) {
         });
     }
 
+
+    
     onclickoflinkedin() {
         this[NavigationMixin.Navigate]({
             type: "standard__webPage",
