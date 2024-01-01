@@ -73,7 +73,7 @@ public class ExternalSystemIntegrationWithoutConnectedApp {
 ```
 <b>NOTE:</b>
     <i>Using Remote Site Settings is suitable for simple integrations where authentication and authorization are handled by the external API without the need for OAuth. <br>
-    If the external API requires OAuth or a specific authentication flow, you may still need to create a Connected App to manage authentication and obtain an access token.
+    If the external API requires OAuth or a specific authentication flow, you may still need to create a Connected App to manage authentication and obtain an access token.<br>
     Connected Apps offer more control over security settings, including OAuth policies, and are often necessary for more complex integrations.
     </i>
 
