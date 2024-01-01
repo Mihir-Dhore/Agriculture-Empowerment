@@ -40,9 +40,44 @@ We value your input. Share your thoughts, suggestions, and experiences through o
 
 
 <h1>Important Code</h1>
+Integrate Salesforce with external systems using rest
+<b>Steps:-</b>
+1. Create a Connected App in Salesforce:
+            In Salesforce Setup, navigate to "App Manager."
+            Click "New Connected App."
+            Fill in the required information, including the API (enable OAuth) settings.
+            Make note of the Consumer Key and Consumer Secret generated for the app.
+2. Write Apex Class for REST Integration Or We can do With Javascript also as mentioned in below code.
 
+We can also do Integration with the Remote site settings as just need to add API url to the Remote site and need to write Javascript or below apex class
+APEX:
+```
+public class ExternalSystemIntegrationWithoutConnectedApp {
 
-Fetch Data of API using Javascript
+    private static String endpointURL = 'https://api.external-system.com';
+
+    public static String makeRESTCall(String httpMethod, String resource, String requestBody) {
+        HttpRequest request = new HttpRequest();
+        request.setEndpoint(endpointURL + resource);
+        request.setMethod(httpMethod);
+        request.setHeader('Content-Type', 'application/json');
+
+        if (httpMethod != 'GET' && requestBody != null) {
+            request.setBody(requestBody);
+        }
+
+        HttpResponse response = new Http().send(request);
+        return response.getBody();
+    }
+}
+```
+<b>NOTE:</b>
+    <i>Using Remote Site Settings is suitable for simple integrations where authentication and authorization are handled by the external API without the need for OAuth.
+    If the external API requires OAuth or a specific authentication flow, you may still need to create a Connected App to manage authentication and obtain an access token.
+    Connected Apps offer more control over security settings, including OAuth policies, and are often necessary for more complex integrations.
+    </i>
+
+Fetch Data of API using Javascript(API Integration In Salesforce Using RestAPI)
 ```
 handleFetchData() {
     let endPoint = `https://api.weatherapi.com/v1/current.json?key=6388b321ff7a4f239de125943230612&q=${currentLocation.latitude},${currentLocation.longitude}`;
