@@ -73,6 +73,7 @@
     background-color: #abcbb1;
     border: 1px solid black;
     border-radius: 8px;
+    box-shadow: 5px 5px rgb(168, 171, 173);
     transition: transform 0.3s ease-in-out;
     word-wrap: break-word;
 

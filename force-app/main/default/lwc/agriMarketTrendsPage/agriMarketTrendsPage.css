@@ -1,13 +1,13 @@
 .combox{
     display: flex;
     justify-content: right ;
-    padding-bottom: 15px;
+    padding-bottom: 10px;
 }
 
-.main{
+/* .main{
     background: #f5f5f5;
     padding: 10px;
-}
+} */
 .main-container {
     text-align: center;
     padding: 20px;
@@ -64,12 +64,12 @@
 }
 
 .views-section {
-    background-color: #d3bebec6; 
+    background-color: rgba(23, 37, 42, 0.85);
     padding: 20px;
     border-radius: 5px;
     flex: 0 0 40%; /* Adjust the width for larger screens */
     height: 100%;
-
+ 
 }
 
 .text-area {
@@ -138,8 +138,8 @@
 
 .custom-datatable {
     /* Customize the table styling as needed */
-    border-radius: 4px; /* Optional: Add border-radius for rounded corners */
-    background-color: #fff; /* Set a background color for the table */
+    border-radius: 4px; 
+    background-color: #fff; 
 }
 
 .custom-no-data-message {

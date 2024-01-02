@@ -1,6 +1,14 @@
 <template>
     <!-- ******************Weather -Start******************* -->
     <div class="main">
+      
+    
+        <template if:true={showEnglishData}>
+            <marquee class="marque">WELCOME TO THE AGRICULTURE EMPOWERMENT SITE</marquee>
+        </template>
+        <template if:true={showHindiData}>
+            <marquee class="marque">कृषि अधिकारिता स्थल पर आपका स्वागत है!</marquee>
+        </template>
         <div class="combox">
             <lightning-combobox
             name="language"
@@ -10,14 +18,6 @@
             onchange={handleLanguageChange}
            ></lightning-combobox>
         </div>
-    
-        <template if:true={showEnglishData}>
-            <marquee class="marque">WELCOME TO THE AGRICULTURE EMPOWERMENT SITE</marquee>
-        </template>
-        <template if:true={showHindiData}>
-            <marquee class="marque">कृषि अधिकारिता स्थल पर आपका स्वागत है!</marquee>
-
-        </template>
         <div class="card">
             <template if:true={result}>
                 <div class="card-content">

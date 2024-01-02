@@ -30,7 +30,7 @@
 
         <!-- Seasonal Calendar - Start -->
         <h1 style="text-align: center;" class="main-description">Seasonal Calendar</h1>
-        <div class="slds-scrollable_y" style="height:10rem;width:100%" tabindex="0">
+        <div class="slds-scrollable_y" style="height:10rem;width:100%;color:black" tabindex="0">
             <div class="custom-card">
                 <template if:true={seasonalItems}>
                     <lightning-datatable
@@ -89,14 +89,14 @@
                 </div>
             </lightning-layout-item>
             <lightning-layout-item size="4" class="views-section">
-                <h1>Share your insights and experiences related to market trends</h1>
+                <h1 style="color: white;">Share your insights and experiences related to market trends</h1>
 
                 <lightning-textarea name="city" placeholder="Share your views..." value={viewValue}
                     onchange={handleViewChange} variant="standard" class="text-area"></lightning-textarea>
             
                 <lightning-button  style="display: flex;justify-content:center" variant="brand" label="Submit" onclick={handleSubmitClick}></lightning-button>
 
-                <p class="public-views">Community Perspectives: <br></p>
+                <p style="color: white;" class="public-views">Community Perspectives: <br></p>
                 <template for:each={viewsData} for:item="vd">
                     <div key={vd.Id} class="public-view-item">
                         <p style="color: #34495e;">{vd.Submission_Date__c}</p>

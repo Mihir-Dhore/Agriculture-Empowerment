@@ -9,75 +9,26 @@
 }
 .marque{
     color: rgb(54, 1, 1);
-    font-size: medium;
+    font-size: small;
 }
-/* .card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    background-color: #95FDD8;
-    overflow: hidden;
- 
-}
-
-.card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-}
-
-.card-content {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-}
-
-.weather-icon {
-    height: 80px;
-    width: 80px;
-    margin-right: 20px;
-}
-
-.condition {
-    font-size: 16px;
-    margin-left: 20px;
-}
-
-.additional-info {
-    text-align: right;
-}
-
-.degree {
-    font-size: 24px;
-    font-weight: bold;
-    margin: 0;
-}
-
-.location {
-    font-size: 14px;
-    margin: 5px 0;
-}
-
-.local-time {
-    font-size: 14px;
-    color: #666;
-    margin: 0;
-} */
-
-.card{
+/* Weather Api */
+.card {
     display: flex;
     justify-content: space-evenly;
     text-align: center;
     border: 1px solid #3f3b3b;
     border-radius: 4px;
-    /* margin-left: 30%;
-    margin-right: 30%; */
     padding: 30px;
-    background-color: #504e5e;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    transition: transform 0.3s ease-in-out; 
+    background-color: rgba(23, 37, 42, 0.85);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
 }
+
 .card:hover {
     transform: scale(1.01);
 }
-.card-content{
+
+.card-content {
     border: 1px solid #332d2d;
     border-radius: 4px;
     padding-top: 30px;
@@ -87,10 +38,12 @@
     background-color: #fff;
 
 }
-.degree{
+
+.degree {
     font-size: x-large;
 }
-.location{
+
+.location {
     color: brown;
     font-size: large;
 }
@@ -100,33 +53,28 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    background-color: rgb(76, 120, 61);
 }
 
 .data-item {
-    background-color: #f0f0f0;
-    border: 1px solid #333131;
-    border-radius: 5px;
+    color: white;
+    background-color: rgba(23, 37, 42, 0.85);
+    width: 200px;
+    height: 200px;
+    border-radius: 8px;
     padding: 10px;
     margin: 10px;
-    transition: background-color 0.3s ease-in-out;
     cursor: pointer;
-    height: 230px;
-    width: 200px;
-
+    box-shadow: 5px 5px rgb(168, 171, 173);
+    font-family: 'Times New Roman';
+    font-weight: bold;
 }
 
 .data-item:hover {
-    background-color: #abcbb1;
+    background-color: #1e1c1c;
+    transform: calc(1.1);
 }
 
-/* .datamarket{
-    background-color: bisque;
-} */
-/* .hovered {
-    background-color: #abcbb1;
-} */
-
+ 
 .heading{
     font-size: 30px;
     color: #2c3e50; /* Dark blue color */
