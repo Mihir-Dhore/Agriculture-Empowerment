@@ -4,6 +4,8 @@
 https://github.com/Mihir-Dhore/Agriculture-Empowerment/assets/83826641/20cfa5af-982b-482a-b503-12305ad046fe
 
 
+Technical Document:-
+[Technical Document AE.pdf](https://github.com/Mihir-Dhore/Agriculture-Empowerment/files/13842271/Technical.Document.AE.pdf)
 
 <h1>Agricultural Empowerment</h1>
 
