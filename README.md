@@ -43,12 +43,12 @@ We value your input. Share your thoughts, suggestions, and experiences through o
 
 <h1>Important Code</h1>
 Integrate Salesforce with external systems using rest
-<b>Steps:-</b>
-1. Create a Connected App in Salesforce:
-            In Salesforce Setup, navigate to "App Manager."
-            Click "New Connected App."
-            Fill in the required information, including the API (enable OAuth) settings.
-            Make note of the Consumer Key and Consumer Secret generated for the app.
+<b>Steps:-</b> <br>
+1. Create a Connected App in Salesforce: <br>
+            In Salesforce Setup, navigate to "App Manager." <br>
+            Click "New Connected App." <br>
+            Fill in the required information, including the API (enable OAuth) settings. <br>
+            Make note of the Consumer Key and Consumer Secret generated for the app. <br>
 2. Write Apex Class for REST Integration Or We can do With Javascript also as mentioned in below code.
 
 We can also do Integration with the Remote site settings as just need to add API url to the Remote site and need to write Javascript or below apex class
