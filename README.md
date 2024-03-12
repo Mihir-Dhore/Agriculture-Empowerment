@@ -42,7 +42,7 @@ We value your input. Share your thoughts, suggestions, and experiences through o
 
 
 <h1>Important Code</h1>
-Integrate Salesforce with external systems using rest
+Integrate Salesforce with external systems using rest <br>
 <b>Steps:-</b> <br>
 1. Create a Connected App in Salesforce: <br>
             In Salesforce Setup, navigate to "App Manager." <br>
