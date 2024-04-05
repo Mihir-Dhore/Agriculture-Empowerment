@@ -32,6 +32,7 @@ Visit our training and support page for expert guidance. Access training materia
 
 <h3>Feedback:</h3> <br>
 We value your input. Share your thoughts, suggestions, and experiences through our anonymous feedback page. Your feedback is essential in helping us continually improve our platform to better serve the farming community.
+Extra Point: In Feedback I have used service cloud feature that is web to Case to resolve the Users query as when user add the query then it insert into the Case and admin resolve the query.
 
 <h1>API Used</h1>
 <h3>Weather API:- </h3> https://api.weatherapi.com/v1/current.json?key=6388b321ff7a4f239de125943230612&q=Surat
