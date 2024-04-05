@@ -31,7 +31,7 @@ Stay ahead in the field with our news and tips section. From the latest agricult
 Visit our training and support page for expert guidance. Access training materials tailored for each season, along with informative YouTube videos to enhance your understanding of best practices.
 
 <h3>Feedback:</h3> <br>
-We value your input. Share your thoughts, suggestions, and experiences through our anonymous feedback page. Your feedback is essential in helping us continually improve our platform to better serve the farming community.
+We value your input. Share your thoughts, suggestions, and experiences through our anonymous feedback page. Your feedback is essential in helping us continually improve our platform to better serve the farming community. <br><br>
 Extra Point: In Feedback I have used service cloud feature that is web to Case to resolve the Users query as when user add the query then it insert into the Case and admin resolve the query.
 
 <h1>API Used</h1>
